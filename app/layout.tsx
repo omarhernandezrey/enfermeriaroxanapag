@@ -21,22 +21,22 @@ export default function RootLayout({
             {/* Menú de navegación */}
             <ul className="flex space-x-6">
               <li>
-                <a href="#inicio" className="hover:underline">
+                <a href="/inicio" className="hover:underline">
                   Inicio
                 </a>
               </li>
               <li>
-                <a href="#nosotros" className="hover:underline">
+                <a href="/nosotros" className="hover:underline">
                   Nosotros
                 </a>
               </li>
               <li>
-                <a href="#servicios" className="hover:underline">
+                <a href="/servicios" className="hover:underline">
                   Servicios
                 </a>
               </li>
               <li>
-                <a href="#contacto" className="hover:underline">
+                <a href="/contacto" className="hover:underline">
                   Contáctanos
                 </a>
               </li>
