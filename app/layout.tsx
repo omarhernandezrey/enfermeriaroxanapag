@@ -1,6 +1,6 @@
 import './globals.css';
 import Footer from './components/Footer';
-import MobileMenu from './components/MobileMenu';
+import FloatingButtons from './components/FloatingButtons';
 
 export const metadata = {
   title: 'Enfermería Roxana',
@@ -17,11 +17,8 @@ export default function RootLayout({
       <body>
         <header className="bg-teal-600 text-white shadow-md">
           <nav className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-            {/* Título del sitio */}
             <h1 className="text-2xl font-bold">Enfermería Roxana</h1>
-
-            {/* Menú de navegación - Oculto en dispositivos pequeños */}
-            <ul className="hidden md:flex space-x-6">
+            <ul className="flex space-x-6">
               <li>
                 <a href="/inicio" className="hover:underline">
                   Inicio
@@ -43,14 +40,10 @@ export default function RootLayout({
                 </a>
               </li>
             </ul>
-
-            {/* Menú móvil - Visible solo en dispositivos pequeños */}
-            <div className="md:hidden">
-              <MobileMenu />
-            </div>
           </nav>
         </header>
         <main>{children}</main>
+        <FloatingButtons />
         <Footer />
       </body>
     </html>
