@@ -1,4 +1,5 @@
 import './globals.css';
+import Footer from './components/Footer';
 
 export const metadata = {
   title: 'Enfermería Roxana',
@@ -15,10 +16,7 @@ export default function RootLayout({
       <body>
         <header className="bg-teal-600 text-white shadow-md">
           <nav className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-            {/* Título del sitio */}
             <h1 className="text-2xl font-bold">Enfermería Roxana</h1>
-
-            {/* Menú de navegación */}
             <ul className="flex space-x-6">
               <li>
                 <a href="/inicio" className="hover:underline">
@@ -44,6 +42,7 @@ export default function RootLayout({
           </nav>
         </header>
         <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );
