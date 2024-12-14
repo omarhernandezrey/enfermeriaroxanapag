@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { FiMenu, FiX, FiHome, FiUser, FiPhone } from "react-icons/fi";
 import { MdMedicalServices } from "react-icons/md";
 import { FaFacebookSquare, FaInstagram, FaWhatsapp } from "react-icons/fa";
@@ -9,31 +9,16 @@ const MobileMenu = () => {
   const [isOpen, setIsOpen] = useState(false); // Estado del menú móvil
   const [isServicesOpen, setIsServicesOpen] = useState(false); // Estado del submenú de servicios
 
-  // Cerrar el menú al hacer clic fuera de él
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      const menu = document.getElementById("mobile-menu");
-      if (menu && !menu.contains(event.target as Node)) {
-        setIsOpen(false);
-        setIsServicesOpen(false);
-      }
-    };
-
-    if (isOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-    } else {
-      document.removeEventListener("mousedown", handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [isOpen]);
-
   // Función para cerrar el menú
   const closeMenu = () => {
     setIsOpen(false);
     setIsServicesOpen(false);
+  };
+
+  // Función para abrir o cerrar el submenú de Servicios
+  const toggleServicesMenu = (e: React.MouseEvent) => {
+    e.preventDefault(); // Evita que el enlace redireccione al hacer clic
+    setIsServicesOpen((prev) => !prev);
   };
 
   return (
@@ -100,16 +85,23 @@ const MobileMenu = () => {
 
             {/* Menú desplegable de Servicios */}
             <li>
-              <button
-                onClick={() => setIsServicesOpen(!isServicesOpen)}
-                className="flex items-center justify-between w-full border border-white rounded-lg px-3 py-2 hover:bg-teal-500 focus:outline-none transition-all duration-200"
-              >
-                <div className="flex items-center space-x-3">
+              <div className="flex items-center justify-between w-full border border-white rounded-lg px-3 py-2 hover:bg-teal-500 focus:outline-none transition-all duration-200">
+                <a
+                  href="/servicios"
+                  className="flex items-center space-x-3 hover:text-teal-300 transition-colors duration-200"
+                  onClick={closeMenu}
+                >
                   <MdMedicalServices className="text-2xl" />
                   <span>Servicios</span>
-                </div>
-                <span>{isServicesOpen ? "▲" : "▼"}</span>
-              </button>
+                </a>
+                <button
+                  onClick={toggleServicesMenu}
+                  className="focus:outline-none text-lg"
+                  aria-label="Toggle sub-menu"
+                >
+                  {isServicesOpen ? "▲" : "▼"}
+                </button>
+              </div>
               {isServicesOpen && (
                 <ul className="mt-2 bg-white text-teal-600 shadow-lg rounded-lg">
                   <li className="hover:bg-gray-100 border-b border-gray-200 flex items-center space-x-3 px-4 py-2">
