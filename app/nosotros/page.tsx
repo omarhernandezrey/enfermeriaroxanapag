@@ -1,13 +1,19 @@
+"use client";
+
+import Image from "next/image";
+
 export default function Nosotros() {
   return (
     <div className="bg-gray-50 text-gray-800">
       {/* Hero Section */}
       <div className="relative bg-teal-600 text-white h-screen flex items-center justify-center">
         <div className="absolute inset-0">
-          <img
+          <Image
             src="/images/nosotros-hero.jpg"
             alt="Equipo profesional"
-            className="w-full h-full object-cover"
+            layout="fill"
+            objectFit="cover"
+            priority
           />
           <div className="absolute inset-0 bg-gradient-to-t from-teal-900 via-teal-600 to-transparent opacity-80"></div>
         </div>
@@ -52,37 +58,48 @@ export default function Nosotros() {
           Conoce a Nuestro Equipo
         </h2>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {/* Integrante 1 */}
           <div className="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition">
-            <img
+            <Image
               src="/images/roxana-sagre.jpg"
               alt="Roxana Sagre"
-              className="w-full h-40 object-cover"
+              width={400}
+              height={160}
+              objectFit="cover"
             />
             <div className="p-6 text-center">
               <h3 className="text-xl font-bold text-teal-600">Roxana Sagre</h3>
               <p className="text-gray-700 mt-2">Fundadora y Enfermera Jefe</p>
             </div>
           </div>
+          {/* Integrante 2 */}
           <div className="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition">
-            <img
+            <Image
               src="/images/andrea-rey.jpg"
               alt="Andrea Rey"
-              className="w-full h-40 object-cover"
+              width={400}
+              height={160}
+              objectFit="cover"
             />
             <div className="p-6 text-center">
               <h3 className="text-xl font-bold text-teal-600">Andrea Rey</h3>
               <p className="text-gray-700 mt-2">Enfermera Especialista</p>
             </div>
           </div>
+          {/* Integrante 3 */}
           <div className="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition">
-            <img
+            <Image
               src="/images/luz-jasmin.jpg"
               alt="Luz Jasmin Hernández"
-              className="w-full h-40 object-cover"
+              width={400}
+              height={160}
+              objectFit="cover"
             />
             <div className="p-6 text-center">
-              <h3 className="text-xl font-bold text-teal-600">Luz Jasmin Hernández</h3>
-              <p className="text-gray-700 mt-2">Cuidadora Profesional</p>
+              <h3 className="text-xl font-bold text-teal-600">
+                Luz Jasmin Hernández
+              </h3>
+              <p className="text-gray-700 mt-2">Enfermera Especialista</p>
             </div>
           </div>
         </div>
@@ -94,11 +111,21 @@ export default function Nosotros() {
         <div className="relative max-w-7xl mx-auto px-6 animate-fade-in">
           <h2 className="text-3xl font-bold text-center mb-8">Nuestros Valores</h2>
           <ul className="list-disc list-inside space-y-4 text-lg text-white max-w-3xl mx-auto">
-            <li><strong>Compromiso:</strong> Siempre ponemos a nuestros pacientes primero.</li>
-            <li><strong>Empatía:</strong> Brindamos cuidado humano y sensible.</li>
-            <li><strong>Excelencia:</strong> Nos esforzamos por superar las expectativas.</li>
-            <li><strong>Innovación:</strong> Usamos tecnología avanzada para ofrecer mejores servicios.</li>
-            <li><strong>Transparencia:</strong> Comunicamos de manera clara y honesta con las familias.</li>
+            <li>
+              <strong>Compromiso:</strong> Siempre ponemos a nuestros pacientes primero.
+            </li>
+            <li>
+              <strong>Empatía:</strong> Brindamos cuidado humano y sensible.
+            </li>
+            <li>
+              <strong>Excelencia:</strong> Nos esforzamos por superar las expectativas.
+            </li>
+            <li>
+              <strong>Innovación:</strong> Usamos tecnología avanzada para ofrecer mejores servicios.
+            </li>
+            <li>
+              <strong>Transparencia:</strong> Comunicamos de manera clara y honesta con las familias.
+            </li>
           </ul>
         </div>
       </div>

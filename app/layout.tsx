@@ -3,10 +3,10 @@
 import "./globals.css";
 
 import dynamic from "next/dynamic";
+import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
-import { FiHome } from "react-icons/fi"; // Icono para Inicio
+import { FiHome, FiUser, FiPhone } from "react-icons/fi";
 import { MdMedicalServices } from "react-icons/md";
-import { FiPhone, FiUser } from "react-icons/fi";
 
 // Carga dinámica de componentes grandes para optimizar el rendimiento
 const Footer = dynamic(() => import("./components/Footer"), { ssr: false });
@@ -62,11 +62,16 @@ export default function RootLayout({
           <nav className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             {/* Logo y Título */}
             <div className="flex items-center space-x-4">
-              <img
-                src="/images/logo.png"
-                alt="Enfermería Roxana"
-                className="h-12 w-12 rounded-full shadow-md"
-              />
+              <div className="relative w-12 h-12">
+                <Image
+                  src="/images/logo.png"
+                  alt="Enfermería Roxana"
+                  layout="fill"
+                  objectFit="cover"
+                  className="rounded-full shadow-md"
+                  priority
+                />
+              </div>
               <h1 className="text-2xl font-bold">
                 Enfermería <span className="text-teal-300">Roxana</span>
               </h1>
