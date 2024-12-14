@@ -34,7 +34,7 @@ const FloatingButtons = () => {
     >
       {/* Botón de Llamar */}
       <a
-        href="tel:+3136114707"
+        href="tel:+57 3136114707"
         className="relative group bg-red-500 text-white p-4 rounded-full shadow-lg flex items-center justify-center hover:bg-red-600 transition animate-bounce"
         aria-label="Llamar ahora"
       >
