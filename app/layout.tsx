@@ -2,7 +2,7 @@
 
 import "./globals.css";
 import dynamic from "next/dynamic";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 // Carga dinámica de componentes grandes para optimizar el rendimiento
 const Footer = dynamic(() => import("./components/Footer"), { ssr: false });
@@ -18,7 +18,23 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false); // Detectar si es móvil
+
+  // Detectar el tamaño de la pantalla y actualizar el estado
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768); // Cambia a "true" si la pantalla es más pequeña que "md"
+    };
+
+    // Agregar evento de cambio de tamaño
+    window.addEventListener("resize", handleResize);
+
+    // Ejecutar al cargar
+    handleResize();
+
+    // Limpiar el evento al desmontar
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <html lang="es">
@@ -28,89 +44,33 @@ export default function RootLayout({
             {/* Título */}
             <h1 className="text-2xl font-bold">Enfermería Roxana</h1>
 
-            {/* Menú de navegación para pantallas grandes */}
-            <ul className="hidden md:flex space-x-6">
-              <li>
-                <a href="/inicio" className="hover:underline">
-                  Inicio
-                </a>
-              </li>
-
-              {/* Servicios */}
-              <li className="relative">
-                <button
-                  onClick={() => setIsServicesOpen(!isServicesOpen)}
-                  className="hover:underline flex items-center focus:outline-none"
-                >
-                  Servicios <span className="ml-1">▼</span>
-                </button>
-                {isServicesOpen && (
-                  <ul className="absolute left-0 mt-2 bg-white text-teal-600 shadow-lg rounded-lg w-56 z-10">
-                    <li className="border-b border-gray-200 hover:bg-gray-100">
-                      <a
-                        href="/servicios/enfermera-basica"
-                        className="block px-4 py-2 hover:text-teal-800"
-                        onClick={() => setIsServicesOpen(false)}
-                      >
-                        Enfermera a Domicilio Básico
-                      </a>
-                    </li>
-                    <li className="border-b border-gray-200 hover:bg-gray-100">
-                      <a
-                        href="/servicios/cuidador-adulto-mayor"
-                        className="block px-4 py-2 hover:text-teal-800"
-                        onClick={() => setIsServicesOpen(false)}
-                      >
-                        Cuidado Adulto Mayor
-                      </a>
-                    </li>
-                    <li className="border-b border-gray-200 hover:bg-gray-100">
-                      <a
-                        href="/servicios/inyectologia"
-                        className="block px-4 py-2 hover:text-teal-800"
-                        onClick={() => setIsServicesOpen(false)}
-                      >
-                        Inyectología a Domicilio
-                      </a>
-                    </li>
-                    <li className="border-b border-gray-200 hover:bg-gray-100">
-                      <a
-                        href="/servicios/servicio-enfermeras"
-                        className="block px-4 py-2 hover:text-teal-800"
-                        onClick={() => setIsServicesOpen(false)}
-                      >
-                        Servicio de Enfermeras
-                      </a>
-                    </li>
-                    <li className="hover:bg-gray-100">
-                      <a
-                        href="/servicios/cuidado-hospitalario"
-                        className="block px-4 py-2 hover:text-teal-800"
-                        onClick={() => setIsServicesOpen(false)}
-                      >
-                        Cuidado Hospitalario
-                      </a>
-                    </li>
-                  </ul>
-                )}
-              </li>
-
-              <li>
-                <a href="/nosotros" className="hover:underline">
-                  Nosotros
-                </a>
-              </li>
-              <li>
-                <a href="/contacto" className="hover:underline">
-                  Contáctanos
-                </a>
-              </li>
-            </ul>
-
-            {/* Menú móvil */}
-            <div className="md:hidden">
+            {/* Menú de navegación */}
+            {!isMobile ? (
+              <ul className="hidden md:flex space-x-6">
+                <li>
+                  <a href="/inicio" className="hover:underline">
+                    Inicio
+                  </a>
+                </li>
+                <li>
+                  <a href="/nosotros" className="hover:underline">
+                    Nosotros
+                  </a>
+                </li>
+                <li>
+                  <a href="/servicios" className="hover:underline">
+                    Servicios
+                  </a>
+                </li>
+                <li>
+                  <a href="/contacto" className="hover:underline">
+                    Contáctanos
+                  </a>
+                </li>
+              </ul>
+            ) : (
               <MobileMenu />
-            </div>
+            )}
           </nav>
         </header>
 
