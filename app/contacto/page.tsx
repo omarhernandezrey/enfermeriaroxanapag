@@ -2,7 +2,12 @@
 
 import emailjs from "emailjs-com";
 import React from "react";
-import { FaPhoneAlt, FaWhatsapp, FaFacebookSquare, FaInstagram } from "react-icons/fa";
+import {
+  FaPhoneAlt,
+  FaWhatsapp,
+  FaFacebookSquare,
+  FaInstagram,
+} from "react-icons/fa";
 
 export default function Contacto() {
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
@@ -10,10 +15,10 @@ export default function Contacto() {
 
     emailjs
       .sendForm(
-        "service_qp54oaf",
-        "template_3hq4kxx",
+        "service_qp54oaf", // Asegúrate de que este ID sea correcto
+        "template_3hq4kxx", // Asegúrate de que este ID sea correcto
         e.currentTarget,
-        "x2atfk6sd3q0ZLUMV"
+        "x2atfk6sd3q0ZLUMV" // Asegúrate de que este ID sea correcto
       )
       .then(
         (result) => {
@@ -38,8 +43,9 @@ export default function Contacto() {
           Estamos aquí para resolver tus dudas y ayudarte.
         </p>
         <p className="mt-4 font-medium text-lg">
-          Hola, soy <span className="font-bold">Roxana Patricia Sagre Alean</span>, Enfermera Jefe.
-          ¡Contáctate conmigo para cuidar de tus seres queridos!
+          Hola, soy{" "}
+          <span className="font-bold">Roxana Patricia Sagre Alean</span>,
+          Enfermera Jefe. ¡Contáctate conmigo para cuidar de tus seres queridos!
         </p>
       </div>
 

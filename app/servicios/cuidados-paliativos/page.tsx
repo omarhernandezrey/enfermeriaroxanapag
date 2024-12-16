@@ -11,24 +11,24 @@ export default function CuidadosPaliativos() {
           <Image
             src="/images/cuidado-paliativo.jpg" // Asegúrate de que esta imagen esté en /public/images/
             alt="Cuidados Paliativos"
-            layout="fill"
-            objectFit="cover"
+            fill
+            className="object-cover"
             priority
           />
         </div>
         <div className="absolute inset-0 bg-teal-900 bg-opacity-50 flex items-center justify-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white drop-shadow-lg">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white drop-shadow-lg text-center px-4">
             Cuidados Paliativos
           </h1>
         </div>
       </div>
 
       {/* Contenido principal */}
-      <div className="max-w-5xl mx-auto px-6 py-12">
-        <h2 className="text-3xl font-bold text-teal-600 mb-6 text-center">
+      <div className="max-w-5xl mx-auto px-6 sm:px-8 py-12">
+        <h2 className="text-3xl sm:text-4xl font-bold text-teal-600 mb-6 text-center">
           Atención integral y humanizada
         </h2>
-        <p className="text-lg text-gray-700 mb-8 text-center">
+        <p className="text-lg sm:text-xl text-gray-700 mb-8 text-center">
           Ofrecemos servicios personalizados para pacientes en etapas avanzadas
           de enfermedad, enfocados en mejorar su calidad de vida, manejar el
           dolor y proporcionar apoyo emocional a ellos y sus familias.

@@ -9,33 +9,34 @@ export default function RehabilitacionFisica() {
       <div className="relative">
         <div className="relative w-full h-[50vh]">
           <Image
-            src="/images/rehabilitacion-fisica.jpg" // Asegúrate de colocar esta imagen en public/images/
+            src="/images/rehabilitacion-fisica.jpg"
             alt="Rehabilitación Física"
-            layout="fill"
-            objectFit="cover"
+            fill
+            className="object-cover"
             priority
           />
         </div>
         <div className="absolute inset-0 bg-teal-900 bg-opacity-50 flex items-center justify-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white drop-shadow-lg">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white drop-shadow-lg text-center px-4">
             Rehabilitación Física
           </h1>
         </div>
       </div>
 
       {/* Contenido principal */}
-      <div className="max-w-5xl mx-auto px-6 py-12">
-        <h2 className="text-3xl font-bold text-teal-600 mb-6 text-center">
+      <div className="max-w-5xl mx-auto px-6 sm:px-8 py-12">
+        <h2 className="text-3xl sm:text-4xl font-bold text-teal-600 mb-6 text-center">
           Apoyo Integral en la Recuperación Física
         </h2>
-        <p className="text-lg text-gray-700 mb-8 text-center">
+        <p className="text-lg sm:text-xl text-gray-700 mb-8 text-center">
           Nuestras enfermeras y cuidadoras trabajan de manera conjunta con los
           fisioterapeutas y médicos asignados al paciente, garantizando un
           seguimiento continuo de los planes de rehabilitación.
         </p>
 
         {/* Beneficios clave */}
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {/* Ejercicios Personalizados */}
           <div className="flex items-start space-x-4">
             <div className="bg-teal-600 text-white p-3 rounded-full shadow-md">
               <svg
@@ -64,6 +65,7 @@ export default function RehabilitacionFisica() {
             </div>
           </div>
 
+          {/* Seguimiento Continuo */}
           <div className="flex items-start space-x-4">
             <div className="bg-teal-600 text-white p-3 rounded-full shadow-md">
               <svg
@@ -92,6 +94,7 @@ export default function RehabilitacionFisica() {
             </div>
           </div>
 
+          {/* Coordinación con Profesionales */}
           <div className="flex items-start space-x-4">
             <div className="bg-teal-600 text-white p-3 rounded-full shadow-md">
               <svg
@@ -114,12 +117,13 @@ export default function RehabilitacionFisica() {
                 Coordinación con Profesionales
               </h3>
               <p className="text-gray-700">
-                Trabajamos en equipo con fisioterapeutas y médicos para garantizar la
-                efectividad del plan de rehabilitación.
+                Trabajamos en equipo con fisioterapeutas y médicos para
+                garantizar la efectividad del plan de rehabilitación.
               </p>
             </div>
           </div>
 
+          {/* Documentación de Progresos */}
           <div className="flex items-start space-x-4">
             <div className="bg-teal-600 text-white p-3 rounded-full shadow-md">
               <svg

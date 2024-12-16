@@ -9,15 +9,15 @@ const MobileMenu = () => {
   const [isOpen, setIsOpen] = useState(false); // Estado del menú móvil
   const [isServicesOpen, setIsServicesOpen] = useState(false); // Estado del submenú de servicios
 
-  // Función para cerrar el menú
+  // Cerrar menú principal y submenú
   const closeMenu = () => {
     setIsOpen(false);
     setIsServicesOpen(false);
   };
 
-  // Función para abrir o cerrar el submenú de Servicios
+  // Abrir o cerrar el submenú de Servicios
   const toggleServicesMenu = (e: React.MouseEvent) => {
-    e.preventDefault(); // Evita que el enlace redireccione al hacer clic
+    e.preventDefault(); // Evitar redirección
     setIsServicesOpen((prev) => !prev);
   };
 
@@ -42,7 +42,6 @@ const MobileMenu = () => {
 
       {/* Menú deslizable */}
       <div
-        id="mobile-menu"
         className={`fixed top-0 right-0 h-screen w-64 bg-teal-600 text-white shadow-lg z-30 transition-transform transform ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
@@ -59,40 +58,23 @@ const MobileMenu = () => {
 
           {/* Opciones del menú */}
           <ul className="flex flex-col space-y-4 p-4">
-            {/* Inicio */}
-            <li className="flex items-center space-x-3 border border-white rounded-lg px-3 py-2 hover:bg-teal-500 transition-all duration-200">
+            <li className="flex items-center space-x-3 px-3 py-2 hover:bg-teal-500 transition-all duration-200 rounded-lg">
               <FiHome className="text-2xl" />
-              <a
-                href="/inicio"
-                className="hover:text-teal-300 transition-colors duration-200"
-                onClick={closeMenu}
-              >
+              <a href="/inicio" onClick={closeMenu} className="hover:text-teal-300">
                 Inicio
               </a>
             </li>
-
-            {/* Nosotros */}
-            <li className="flex items-center space-x-3 border border-white rounded-lg px-3 py-2 hover:bg-teal-500 transition-all duration-200">
+            <li className="flex items-center space-x-3 px-3 py-2 hover:bg-teal-500 transition-all duration-200 rounded-lg">
               <FiUser className="text-2xl" />
-              <a
-                href="/nosotros"
-                className="hover:text-teal-300 transition-colors duration-200"
-                onClick={closeMenu}
-              >
+              <a href="/nosotros" onClick={closeMenu} className="hover:text-teal-300">
                 Nosotros
               </a>
             </li>
-
-            {/* Menú desplegable de Servicios */}
             <li>
-              <div className="flex items-center justify-between w-full border border-white rounded-lg px-3 py-2 hover:bg-teal-500 focus:outline-none transition-all duration-200">
-                <a
-                  href="/servicios"
-                  className="flex items-center space-x-3 hover:text-teal-300 transition-colors duration-200"
-                  onClick={closeMenu}
-                >
+              <div className="flex items-center justify-between px-3 py-2 hover:bg-teal-500 transition-all duration-200 rounded-lg">
+                <a href="/servicios" onClick={closeMenu} className="flex items-center">
                   <MdMedicalServices className="text-2xl" />
-                  <span>Servicios</span>
+                  <span className="ml-2">Servicios</span>
                 </a>
                 <button
                   onClick={toggleServicesMenu}
@@ -104,68 +86,29 @@ const MobileMenu = () => {
               </div>
               {isServicesOpen && (
                 <ul className="mt-2 bg-white text-teal-600 shadow-lg rounded-lg">
-                  <li className="hover:bg-gray-100 border-b border-gray-200 flex items-center space-x-3 px-4 py-2">
-                    <MdMedicalServices className="text-xl" />
-                    <a
-                      href="/servicios/enfermeria-domiciliaria"
-                      className="hover:text-teal-800 transition-colors duration-200"
-                      onClick={closeMenu}
+                  {[
+                    { href: "/servicios/enfermeria-domiciliaria", label: "Enfermería Domiciliaria" },
+                    { href: "/servicios/turnos-cuidadoras", label: "Turnos de Cuidadoras" },
+                    { href: "/servicios/acomp-hospitalario", label: "Acompañamiento Hospitalario" },
+                    { href: "/servicios/cuidados-paliativos", label: "Cuidados Paliativos" },
+                    { href: "/servicios/rehabilitacion-fisica", label: "Rehabilitación Física" },
+                  ].map((item) => (
+                    <li
+                      key={item.href}
+                      className="hover:bg-gray-100 border-b border-gray-200 flex items-center space-x-3 px-4 py-2 last:border-none"
                     >
-                      Enfermería Domiciliaria
-                    </a>
-                  </li>
-                  <li className="hover:bg-gray-100 border-b border-gray-200 flex items-center space-x-3 px-4 py-2">
-                    <MdMedicalServices className="text-xl" />
-                    <a
-                      href="/servicios/turnos-cuidadoras"
-                      className="hover:text-teal-800 transition-colors duration-200"
-                      onClick={closeMenu}
-                    >
-                      Turnos de Cuidadoras
-                    </a>
-                  </li>
-                  <li className="hover:bg-gray-100 border-b border-gray-200 flex items-center space-x-3 px-4 py-2">
-                    <MdMedicalServices className="text-xl" />
-                    <a
-                      href="/servicios/acomp-hospitalario"
-                      className="hover:text-teal-800 transition-colors duration-200"
-                      onClick={closeMenu}
-                    >
-                      Acompañamiento Hospitalario
-                    </a>
-                  </li>
-                  <li className="hover:bg-gray-100 border-b border-gray-200 flex items-center space-x-3 px-4 py-2">
-                    <MdMedicalServices className="text-xl" />
-                    <a
-                      href="/servicios/cuidados-paliativos"
-                      className="hover:text-teal-800 transition-colors duration-200"
-                      onClick={closeMenu}
-                    >
-                      Cuidados Paliativos
-                    </a>
-                  </li>
-                  <li className="hover:bg-gray-100 flex items-center space-x-3 px-4 py-2">
-                    <MdMedicalServices className="text-xl" />
-                    <a
-                      href="/servicios/rehabilitacion-fisica"
-                      className="hover:text-teal-800 transition-colors duration-200"
-                      onClick={closeMenu}
-                    >
-                      Rehabilitación Física
-                    </a>
-                  </li>
+                      <MdMedicalServices className="text-xl" />
+                      <a href={item.href} onClick={closeMenu} className="hover:text-teal-800">
+                        {item.label}
+                      </a>
+                    </li>
+                  ))}
                 </ul>
               )}
             </li>
-
-            {/* Contáctanos */}
-            <li className="flex items-center space-x-3 border border-white rounded-lg px-3 py-2 hover:bg-teal-500 transition-all duration-200">
+            <li className="flex items-center space-x-3 px-3 py-2 hover:bg-teal-500 transition-all duration-200 rounded-lg">
               <FiPhone className="text-2xl" />
-              <a
-                href="/contacto"
-                className="hover:text-teal-300 transition-colors duration-200"
-                onClick={closeMenu}
-              >
+              <a href="/contacto" onClick={closeMenu} className="hover:text-teal-300">
                 Contáctanos
               </a>
             </li>
@@ -177,7 +120,7 @@ const MobileMenu = () => {
               href="https://facebook.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-white transition-colors duration-200"
+              className="hover:text-white"
             >
               <FaFacebookSquare className="text-3xl" />
             </a>
@@ -185,7 +128,7 @@ const MobileMenu = () => {
               href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-white transition-colors duration-200"
+              className="hover:text-white"
             >
               <FaInstagram className="text-3xl" />
             </a>
@@ -193,7 +136,7 @@ const MobileMenu = () => {
               href="https://wa.me/573136114707"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-white transition-colors duration-200"
+              className="hover:text-white"
             >
               <FaWhatsapp className="text-3xl" />
             </a>

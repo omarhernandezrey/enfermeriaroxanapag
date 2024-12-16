@@ -13,6 +13,7 @@ const Footer = () => {
             </p>
           </div>
           <div className="mt-4 md:mt-0 flex space-x-6">
+            {/* Redes sociales */}
             <a
               href="https://facebook.com"
               target="_blank"
@@ -63,7 +64,7 @@ const Footer = () => {
           <p className="text-sm mt-2">
             Contacto:{" "}
             <a
-              href="mailto:info@enfermeriaroxana.com"
+              href="mailto:roxanapatriciasagrealean@gmail.com"
               className="text-teal-400 hover:underline"
             >
               roxanapatriciasagrealean@gmail.com

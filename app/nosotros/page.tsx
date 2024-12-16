@@ -1,18 +1,45 @@
 "use client";
 
 import Image from "next/image";
+import { FaHandsHelping, FaHeart, FaStar, FaLightbulb, FaUserCheck } from "react-icons/fa";
 
 export default function Nosotros() {
+  const teamMembers = [
+    {
+      name: "Roxana Sagre",
+      role: "Fundadora y Enfermera Jefe",
+      image: "/images/roxana-sagre.jpg",
+    },
+    {
+      name: "Andrea Rey",
+      role: "Enfermera Especialista",
+      image: "/images/andrea-rey.jpg",
+    },
+    {
+      name: "Luz Jasmin Hernández",
+      role: "Enfermera Especialista",
+      image: "/images/luz-jasmin.jpg",
+    },
+  ];
+
+  const values = [
+    { icon: <FaHandsHelping />, title: "Compromiso", description: "Siempre ponemos a nuestros pacientes primero." },
+    { icon: <FaHeart />, title: "Empatía", description: "Brindamos cuidado humano y sensible." },
+    { icon: <FaStar />, title: "Excelencia", description: "Nos esforzamos por superar las expectativas." },
+    { icon: <FaLightbulb />, title: "Innovación", description: "Usamos tecnología avanzada para mejorar los servicios." },
+    { icon: <FaUserCheck />, title: "Transparencia", description: "Comunicamos de manera clara y honesta." },
+  ];
+
   return (
     <div className="bg-gray-50 text-gray-800">
       {/* Hero Section */}
       <div className="relative bg-teal-600 text-white h-screen flex items-center justify-center">
         <div className="absolute inset-0">
           <Image
-            src="/images/nosotros-hero.jpg"
+            src="/images/roxana-sagre.jpg"
             alt="Equipo profesional"
-            layout="fill"
-            objectFit="cover"
+            fill
+            className="object-cover"
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-t from-teal-900 via-teal-600 to-transparent opacity-80"></div>
@@ -30,23 +57,18 @@ export default function Nosotros() {
       {/* Misión y Visión */}
       <div className="max-w-7xl mx-auto px-6 py-12">
         <div className="grid md:grid-cols-2 gap-12 items-center animate-fade-in-up">
-          {/* Misión */}
           <div>
             <h2 className="text-3xl font-bold text-teal-600 mb-4">Nuestra Misión</h2>
             <p className="text-lg text-gray-700">
-              Brindar servicios de cuidado profesional, personalizado y humano a
-              pacientes de todas las edades. Nos esforzamos por mejorar la calidad
-              de vida de nuestros pacientes y sus familias.
+              Brindar servicios de cuidado profesional, personalizado y humano a pacientes de todas las edades.
+              Nos esforzamos por mejorar la calidad de vida de nuestros pacientes y sus familias.
             </p>
           </div>
-
-          {/* Visión */}
           <div>
             <h2 className="text-3xl font-bold text-teal-600 mb-4">Nuestra Visión</h2>
             <p className="text-lg text-gray-700">
-              Ser líderes en atención domiciliaria y hospitalaria, reconocidos
-              por nuestra innovación, empatía y compromiso con el bienestar de
-              quienes confían en nosotros.
+              Ser líderes en atención domiciliaria y hospitalaria, reconocidos por nuestra innovación, empatía
+              y compromiso con el bienestar de quienes confían en nosotros.
             </p>
           </div>
         </div>
@@ -54,79 +76,66 @@ export default function Nosotros() {
 
       {/* Nuestro Equipo */}
       <div className="max-w-7xl mx-auto px-6 py-12 bg-gray-100">
-        <h2 className="text-3xl font-bold text-teal-600 text-center mb-8">
-          Conoce a Nuestro Equipo
-        </h2>
+        <h2 className="text-3xl font-bold text-teal-600 text-center mb-8">Conoce a Nuestro Equipo</h2>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {/* Integrante 1 */}
-          <div className="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition">
-            <Image
-              src="/images/roxana-sagre.jpg"
-              alt="Roxana Sagre"
-              width={400}
-              height={160}
-              objectFit="cover"
-            />
-            <div className="p-6 text-center">
-              <h3 className="text-xl font-bold text-teal-600">Roxana Sagre</h3>
-              <p className="text-gray-700 mt-2">Fundadora y Enfermera Jefe</p>
+          {teamMembers.map((member, index) => (
+            <div
+              key={index}
+              className="flex flex-col bg-white rounded-lg shadow-lg overflow-hidden hover:scale-105 transition"
+            >
+              <div className="relative w-full h-64">
+                <Image src={member.image} alt={member.name} layout="fill" className="object-cover" />
+              </div>
+              <div className="p-6 text-center">
+                <h3 className="text-xl font-bold text-teal-600">{member.name}</h3>
+                <p className="text-gray-700 mt-2">{member.role}</p>
+              </div>
             </div>
-          </div>
-          {/* Integrante 2 */}
-          <div className="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition">
-            <Image
-              src="/images/andrea-rey.jpg"
-              alt="Andrea Rey"
-              width={400}
-              height={160}
-              objectFit="cover"
-            />
-            <div className="p-6 text-center">
-              <h3 className="text-xl font-bold text-teal-600">Andrea Rey</h3>
-              <p className="text-gray-700 mt-2">Enfermera Especialista</p>
-            </div>
-          </div>
-          {/* Integrante 3 */}
-          <div className="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition">
-            <Image
-              src="/images/luz-jasmin.jpg"
-              alt="Luz Jasmin Hernández"
-              width={400}
-              height={160}
-              objectFit="cover"
-            />
-            <div className="p-6 text-center">
-              <h3 className="text-xl font-bold text-teal-600">
-                Luz Jasmin Hernández
-              </h3>
-              <p className="text-gray-700 mt-2">Enfermera Especialista</p>
-            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Nuestros Valores */}
+      <div className="bg-teal-600 text-white py-16">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-3xl font-bold text-center mb-8">Nuestros Valores</h2>
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {values.map((value, index) => (
+              <div key={index} className="text-center">
+                <div className="flex items-center justify-center mb-4 text-4xl">{value.icon}</div>
+                <h3 className="text-xl font-bold mb-2">{value.title}</h3>
+                <p className="text-white text-lg">{value.description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
 
-      {/* Valores */}
-      <div className="relative bg-teal-600 text-white py-16">
-        <div className="absolute inset-0 bg-gradient-to-t from-teal-900 via-teal-600 to-transparent opacity-80"></div>
-        <div className="relative max-w-7xl mx-auto px-6 animate-fade-in">
-          <h2 className="text-3xl font-bold text-center mb-8">Nuestros Valores</h2>
-          <ul className="list-disc list-inside space-y-4 text-lg text-white max-w-3xl mx-auto">
-            <li>
-              <strong>Compromiso:</strong> Siempre ponemos a nuestros pacientes primero.
-            </li>
-            <li>
-              <strong>Empatía:</strong> Brindamos cuidado humano y sensible.
-            </li>
-            <li>
-              <strong>Excelencia:</strong> Nos esforzamos por superar las expectativas.
-            </li>
-            <li>
-              <strong>Innovación:</strong> Usamos tecnología avanzada para ofrecer mejores servicios.
-            </li>
-            <li>
-              <strong>Transparencia:</strong> Comunicamos de manera clara y honesta con las familias.
-            </li>
-          </ul>
+      {/* Testimonios */}
+      <div className="max-w-7xl mx-auto px-6 py-12">
+        <h2 className="text-3xl font-bold text-teal-600 text-center mb-8">Testimonios</h2>
+        <div className="text-center text-lg italic">
+          <p>
+            "Gracias al equipo de Enfermería Roxana, mi madre recibió el mejor cuidado durante su recuperación.
+            ¡Son los mejores!"
+          </p>
+          <span className="block mt-4 text-teal-600 font-semibold">- Cliente Satisfecho</span>
+        </div>
+      </div>
+
+      {/* Llamada a la acción */}
+      <div className="bg-teal-500 text-white py-12">
+        <div className="max-w-7xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-4">¿Necesitas nuestros servicios?</h2>
+          <p className="text-lg mb-6">
+            Contáctanos hoy mismo para brindarte la mejor atención profesional y humana.
+          </p>
+          <a
+            href="/contacto"
+            className="inline-block bg-white text-teal-600 px-6 py-3 rounded-full shadow-lg font-semibold text-lg hover:bg-teal-100 transition transform hover:scale-105"
+          >
+            Contáctanos
+          </a>
         </div>
       </div>
     </div>
