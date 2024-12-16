@@ -175,38 +175,44 @@ export default function Inicio() {
 {/* Testimonios estilo WhatsApp mejorados */}
 <div className="bg-teal-600 text-white py-16">
   <div className="max-w-7xl mx-auto px-4">
-    <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8">
+    <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8">
       Lo que Dicen Nuestros Clientes
     </h2>
     <div className="relative max-w-xl mx-auto bg-gray-100 p-4 rounded-lg shadow-lg">
       {/* Contenedor del chat */}
-      <div className="flex flex-col space-y-6">
+      <div
+        className="flex flex-col space-y-4"
+        style={{ minHeight: "300px" }} // Mantener una altura mínima para evitar saltos
+      >
         {/* Mensaje del cliente */}
-        <div className="self-start flex items-center space-x-3">
-          <div className="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center text-sm font-bold text-teal-600">
+        <div className="self-start flex items-center space-x-2 sm:space-x-3">
+          <div
+            className="w-10 h-10 flex-shrink-0 rounded-full bg-gray-300 flex items-center justify-center text-xs sm:text-sm font-bold text-teal-600"
+            style={{ aspectRatio: "1 / 1" }} // Garantiza que el contenedor sea perfectamente cuadrado
+          >
             {testimonios[currentIndex].nombre
               .split(" ")
               .map((word) => word[0])
               .join("")}
           </div>
-          <div className="bg-white text-gray-800 px-4 py-3 rounded-2xl shadow-md max-w-sm relative">
-            <p className="text-sm italic">
+          <div className="bg-white text-gray-800 px-3 py-2 rounded-2xl shadow-md max-w-[90%] sm:max-w-sm relative">
+            <p className="text-[12px] sm:text-sm italic break-words">
               {testimonios[currentIndex].comentario}
             </p>
-            <span className="absolute bottom-0 right-2 text-xs text-gray-400 mt-1">
+            <span className="absolute bottom-1 right-2 text-[10px] sm:text-xs text-gray-400">
               {["10:15 AM", "3:45 PM", "9:00 PM"][currentIndex % 3]}
             </span>
           </div>
         </div>
 
         {/* Respuesta automática */}
-        <div className="self-end flex items-center space-x-3">
-          <div className="bg-teal-500 text-white px-4 py-3 rounded-2xl shadow-md max-w-sm relative">
-            <p className="text-sm">
+        <div className="self-end flex items-center space-x-2 sm:space-x-3">
+          <div className="bg-teal-500 text-white px-3 py-2 rounded-2xl shadow-md max-w-[90%] sm:max-w-sm relative">
+            <p className="text-[12px] sm:text-sm break-words">
               Muchas gracias, {testimonios[currentIndex].nombre}. Nos alegra
               saber que estás satisfecho con nuestro servicio. 😊
             </p>
-            <span className="absolute bottom-0 right-2 text-xs text-gray-200 mt-1">
+            <span className="absolute bottom-1 right-2 text-[10px] sm:text-xs text-gray-200">
               {["10:17 AM", "3:50 PM", "9:05 PM"][currentIndex % 3]}
             </span>
           </div>
@@ -214,18 +220,21 @@ export default function Inicio() {
 
         {/* Mensaje adicional del cliente */}
         {currentIndex % 2 === 0 && (
-          <div className="self-start flex items-center space-x-3">
-            <div className="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center text-sm font-bold text-teal-600">
+          <div className="self-start flex items-center space-x-2 sm:space-x-3">
+            <div
+              className="w-10 h-10 flex-shrink-0 rounded-full bg-gray-300 flex items-center justify-center text-xs sm:text-sm font-bold text-teal-600"
+              style={{ aspectRatio: "1 / 1" }} // Garantiza que el contenedor sea perfectamente cuadrado
+            >
               {testimonios[currentIndex].nombre
                 .split(" ")
                 .map((word) => word[0])
                 .join("")}
             </div>
-            <div className="bg-white text-gray-800 px-4 py-3 rounded-2xl shadow-md max-w-sm relative">
-              <p className="text-sm italic">
+            <div className="bg-white text-gray-800 px-3 py-2 rounded-2xl shadow-md max-w-[90%] sm:max-w-sm relative">
+              <p className="text-[12px] sm:text-sm italic break-words">
                 Siempre recomendaré a Enfermería Roxana. ¡Son los mejores! 💙
               </p>
-              <span className="absolute bottom-0 right-2 text-xs text-gray-400 mt-1">
+              <span className="absolute bottom-1 right-2 text-[10px] sm:text-xs text-gray-400">
                 {["10:20 AM", "3:55 PM", "9:10 PM"][currentIndex % 3]}
               </span>
             </div>
@@ -234,12 +243,12 @@ export default function Inicio() {
       </div>
     </div>
     {/* Navegación de testimonios */}
-    <div className="flex justify-center space-x-2 mt-8">
+    <div className="flex justify-center space-x-2 mt-6">
       {testimonios.map((_, index) => (
         <button
           key={index}
-          className={`w-3 h-3 rounded-full ${
-            index === currentIndex ? "bg-teal-300" : "bg-gray-400"
+          className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
+            index === currentIndex ? "bg-teal-300 scale-125" : "bg-gray-400"
           }`}
           onClick={() => setCurrentIndex(index)}
           aria-label={`Ver testimonio ${index + 1}`}
@@ -248,6 +257,7 @@ export default function Inicio() {
     </div>
   </div>
 </div>
+
 
 
       {/* Turnos */}
