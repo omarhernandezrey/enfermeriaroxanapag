@@ -6,12 +6,7 @@ import Image from "next/image";
 const ServicioCard = ({ imageSrc, title, description, link }: any) => (
   <div className="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
     <div className="relative h-48 w-full">
-      <Image
-        src={imageSrc}
-        alt={title}
-        layout="fill"
-        className="object-cover"
-      />
+      <Image src={imageSrc} alt={title} fill className="object-cover" />
     </div>
     <div className="p-6">
       <h3 className="text-lg font-bold text-teal-600">{title}</h3>
@@ -64,6 +59,37 @@ export default function Inicio() {
     return () => clearInterval(interval);
   }, [testimonios.length]);
 
+  const turnos = [
+    {
+      title: "Enfermería 12 horas (Día)",
+      description:
+        "Turno diurno ideal para cuidado extendido durante el día, asegurando la mejor atención para tus seres queridos.",
+      message:
+        "Hola, estoy interesado en contratar el turno de Enfermería de 12 horas durante el día. ¿Me pueden dar más información, por favor?",
+    },
+    {
+      title: "Enfermería 8 horas o 6 horas",
+      description:
+        "Turnos flexibles para adaptarse a tus necesidades específicas, ya sea para cuidado parcial o supervisión puntual.",
+      message:
+        "Hola, estoy interesado en contratar el turno de Enfermería de 8 o 6 horas. ¿Me pueden dar más información, por favor?",
+    },
+    {
+      title: "Enfermería solo de noche",
+      description:
+        "Turno nocturno para garantizar la tranquilidad y el cuidado continuo durante la noche.",
+      message:
+        "Hola, estoy interesado en contratar el turno de Enfermería solo de noche. ¿Me pueden dar más información, por favor?",
+    },
+    {
+      title: "Enfermería turnos 24x24",
+      description:
+        "Turno continuo con cambios diarios, ideal para cuidado integral y supervisión constante.",
+      message:
+        "Hola, estoy interesado en contratar el turno de Enfermería 24x24. ¿Me pueden dar más información, por favor?",
+    },
+  ];
+
   return (
     <div className="bg-gray-50 text-gray-800">
       {/* Hero Section */}
@@ -72,8 +98,8 @@ export default function Inicio() {
           <Image
             src="/images/hero-image.jpg"
             alt="Cuidado profesional"
-            layout="fill"
-            objectFit="cover"
+            fill
+            className="object-cover"
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-t from-teal-900 via-teal-600 to-transparent opacity-80"></div>
@@ -100,14 +126,12 @@ export default function Inicio() {
           ¿Quiénes Somos?
         </h2>
         <p className="text-lg text-gray-700 text-center max-w-3xl mx-auto">
-  En <strong>Enfermería Roxana</strong>, nos especializamos en brindar un
-  cuidado integral, humano y personalizado que supera todas las expectativas.
-  Nuestro equipo de enfermeras altamente capacitadas, con años de experiencia
-  en atención domiciliaria y hospitalaria, se dedica a garantizar el bienestar
-  físico y emocional de cada paciente. 
-
-  Ofrecemos una amplia variedad de servicios, adaptados a las necesidades de cada cliente, incluyendo turnos flexibles para asegurar cuidado constante: <strong>turnos de 6, 8, 12 y 24 horas</strong>. Además, nuestras enfermeras no solo se destacan por su profesionalismo, sino también por su empatía, compromiso y dedicación, creando un ambiente de confianza y seguridad para los pacientes y sus familias.
-</p>
+          En <strong>Enfermería Roxana</strong>, nos especializamos en brindar
+          un cuidado integral, humano y personalizado que supera todas las
+          expectativas. Nuestro equipo de enfermeras altamente capacitadas, con
+          años de experiencia en atención domiciliaria y hospitalaria, se
+          dedica a garantizar el bienestar físico y emocional de cada paciente.
+        </p>
         <div className="mt-10 flex justify-center">
           <a
             href="/nosotros"
@@ -174,20 +198,65 @@ export default function Inicio() {
         </div>
       </div>
 
-      {/* Llamado a la Acción */}
-      <div className="bg-gray-50 py-16">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold text-teal-600 mb-8">
-            ¿Listo para Experimentar un Cuidado de Calidad?
-          </h2>
-          <a
-            href="/contacto"
-            className="bg-teal-600 text-white px-8 py-3 rounded-lg shadow-lg font-semibold text-lg hover:bg-teal-700 transition transform hover:scale-105"
-          >
-            Contáctanos Hoy
-          </a>
+{/* Sección de turnos */}
+<div className="py-16 bg-gray-100">
+  <div className="max-w-7xl mx-auto px-4">
+    <h2 className="text-3xl sm:text-4xl font-bold text-teal-600 text-center mb-12">
+      Elige tu Turno Ideal
+    </h2>
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      {turnos.map((turno, index) => (
+        <div
+          key={index}
+          className="flex flex-col justify-between bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300"
+        >
+          {/* Cabecera decorativa */}
+          <div className="relative bg-gradient-to-b from-teal-600 to-teal-500 text-white p-6">
+            <div className="w-12 h-12 mx-auto rounded-full bg-white flex items-center justify-center mb-4">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="currentColor"
+                className="w-8 h-8 text-teal-600"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                />
+              </svg>
+            </div>
+            <h3 className="text-xl font-bold text-center">{turno.title}</h3>
+          </div>
+
+          {/* Contenido */}
+          <div className="flex-grow p-6">
+            <p className="text-gray-700 text-sm text-center">
+              {turno.description}
+            </p>
+          </div>
+
+          {/* Botón */}
+          <div className="p-6">
+            <a
+              href={`https://wa.me/573136114707?text=${encodeURIComponent(
+                turno.message
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block bg-teal-600 text-white text-center px-6 py-3 rounded-lg font-semibold shadow-md hover:bg-teal-500 transition transform hover:scale-105"
+            >
+              Solicitar Turno
+            </a>
+          </div>
         </div>
-      </div>
+      ))}
+    </div>
+  </div>
+</div>
+
     </div>
   );
 }
