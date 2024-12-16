@@ -4,16 +4,16 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 
 const ServicioCard = ({ imageSrc, title, description, link }: any) => (
-  <div className="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
+  <div className="bg-white rounded-lg shadow-md overflow-hidden transform hover:scale-105 hover:shadow-xl transition duration-300">
     <div className="relative h-48 w-full">
       <Image src={imageSrc} alt={title} fill className="object-cover" />
     </div>
     <div className="p-6">
-      <h3 className="text-lg font-bold text-teal-600">{title}</h3>
-      <p className="text-gray-700 mt-2">{description}</p>
+      <h3 className="text-xl font-bold text-teal-600">{title}</h3>
+      <p className="text-gray-600 mt-2">{description}</p>
       <a
         href={link}
-        className="text-teal-600 font-semibold mt-4 inline-block hover:underline"
+        className="text-teal-500 font-semibold mt-4 inline-block hover:text-teal-700 transition"
       >
         Leer más
       </a>
@@ -55,7 +55,7 @@ export default function Inicio() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonios.length);
-    }, 4000);
+    }, 5000);
     return () => clearInterval(interval);
   }, [testimonios.length]);
 
@@ -98,27 +98,28 @@ export default function Inicio() {
           <Image
             src="/images/hero-image.jpg"
             alt="Cuidado profesional"
-            fill
-            className="object-cover"
+            layout="fill"
+            className="object-cover brightness-50"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-teal-900 via-teal-600 to-transparent opacity-80"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black opacity-50"></div>
         </div>
-        <div className="relative z-10 text-center px-4 sm:px-8">
-          <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold leading-tight drop-shadow-md">
+        <div className="relative z-10 text-center px-6">
+          <h1 className="text-4xl md:text-6xl font-bold drop-shadow-lg">
             Atención Profesional y Humana
           </h1>
-          <p className="mt-4 text-lg sm:text-xl">
+          <p className="mt-4 text-lg md:text-xl">
             Cuidado personalizado las 24 horas, los 7 días de la semana.
           </p>
           <a
             href="/contacto"
-            className="mt-6 inline-block bg-white text-teal-600 px-6 py-3 rounded-full shadow-lg font-semibold text-lg hover:bg-teal-100 transition transform hover:scale-105"
+            className="mt-6 inline-block bg-white text-teal-600 px-8 py-3 rounded-full font-semibold hover:bg-teal-100 shadow-md transform hover:scale-105 transition"
           >
             Contáctanos
           </a>
         </div>
       </div>
+
 
       {/* Sobre nosotros */}
       <div className="max-w-7xl mx-auto px-4 py-16">
@@ -171,35 +172,86 @@ export default function Inicio() {
         </div>
       </div>
 
-      {/* Testimonios dinámicos */}
-      <div className="bg-teal-600 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8">
-            Lo que Dicen Nuestros Clientes
-          </h2>
-          <div className="relative max-w-xl mx-auto bg-white text-teal-600 p-6 rounded-lg shadow-lg text-center">
-            <p className="italic text-lg">
-              &quot;{testimonios[currentIndex].comentario}&quot;
-            </p>
-            <p className="mt-4 font-bold">- {testimonios[currentIndex].nombre}</p>
+{/* Testimonios estilo WhatsApp mejorados */}
+<div className="bg-teal-600 text-white py-16">
+  <div className="max-w-7xl mx-auto px-4">
+    <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8">
+      Lo que Dicen Nuestros Clientes
+    </h2>
+    <div className="relative max-w-xl mx-auto bg-gray-100 p-4 rounded-lg shadow-lg">
+      {/* Contenedor del chat */}
+      <div className="flex flex-col space-y-6">
+        {/* Mensaje del cliente */}
+        <div className="self-start flex items-center space-x-3">
+          <div className="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center text-sm font-bold text-teal-600">
+            {testimonios[currentIndex].nombre
+              .split(" ")
+              .map((word) => word[0])
+              .join("")}
           </div>
-          <div className="flex justify-center space-x-2 mt-4">
-            {testimonios.map((_, index) => (
-              <button
-                key={index}
-                className={`w-3 h-3 rounded-full ${
-                  index === currentIndex ? "bg-teal-300" : "bg-gray-400"
-                }`}
-                onClick={() => setCurrentIndex(index)}
-                aria-label={`Ver testimonio ${index + 1}`}
-              ></button>
-            ))}
+          <div className="bg-white text-gray-800 px-4 py-3 rounded-2xl shadow-md max-w-sm relative">
+            <p className="text-sm italic">
+              {testimonios[currentIndex].comentario}
+            </p>
+            <span className="absolute bottom-0 right-2 text-xs text-gray-400 mt-1">
+              {["10:15 AM", "3:45 PM", "9:00 PM"][currentIndex % 3]}
+            </span>
           </div>
         </div>
-      </div>
 
-{/* Sección de turnos */}
-<div className="py-16 bg-gray-100">
+        {/* Respuesta automática */}
+        <div className="self-end flex items-center space-x-3">
+          <div className="bg-teal-500 text-white px-4 py-3 rounded-2xl shadow-md max-w-sm relative">
+            <p className="text-sm">
+              Muchas gracias, {testimonios[currentIndex].nombre}. Nos alegra
+              saber que estás satisfecho con nuestro servicio. 😊
+            </p>
+            <span className="absolute bottom-0 right-2 text-xs text-gray-200 mt-1">
+              {["10:17 AM", "3:50 PM", "9:05 PM"][currentIndex % 3]}
+            </span>
+          </div>
+        </div>
+
+        {/* Mensaje adicional del cliente */}
+        {currentIndex % 2 === 0 && (
+          <div className="self-start flex items-center space-x-3">
+            <div className="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center text-sm font-bold text-teal-600">
+              {testimonios[currentIndex].nombre
+                .split(" ")
+                .map((word) => word[0])
+                .join("")}
+            </div>
+            <div className="bg-white text-gray-800 px-4 py-3 rounded-2xl shadow-md max-w-sm relative">
+              <p className="text-sm italic">
+                Siempre recomendaré a Enfermería Roxana. ¡Son los mejores! 💙
+              </p>
+              <span className="absolute bottom-0 right-2 text-xs text-gray-400 mt-1">
+                {["10:20 AM", "3:55 PM", "9:10 PM"][currentIndex % 3]}
+              </span>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+    {/* Navegación de testimonios */}
+    <div className="flex justify-center space-x-2 mt-8">
+      {testimonios.map((_, index) => (
+        <button
+          key={index}
+          className={`w-3 h-3 rounded-full ${
+            index === currentIndex ? "bg-teal-300" : "bg-gray-400"
+          }`}
+          onClick={() => setCurrentIndex(index)}
+          aria-label={`Ver testimonio ${index + 1}`}
+        ></button>
+      ))}
+    </div>
+  </div>
+</div>
+
+
+      {/* Turnos */}
+      <div className="py-16 bg-gradient-to-r from-gray-100 to-gray-200">
   <div className="max-w-7xl mx-auto px-4">
     <h2 className="text-3xl sm:text-4xl font-bold text-teal-600 text-center mb-12">
       Elige tu Turno Ideal
@@ -208,49 +260,32 @@ export default function Inicio() {
       {turnos.map((turno, index) => (
         <div
           key={index}
-          className="flex flex-col justify-between bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300"
+          className="flex flex-col justify-between bg-white rounded-xl shadow-lg p-6 transform hover:scale-105 transition duration-300 relative overflow-hidden"
         >
-          {/* Cabecera decorativa */}
-          <div className="relative bg-gradient-to-b from-teal-600 to-teal-500 text-white p-6">
-            <div className="w-12 h-12 mx-auto rounded-full bg-white flex items-center justify-center mb-4">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                className="w-8 h-8 text-teal-600"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-                />
-              </svg>
+          {/* Fondo decorativo */}
+          <div className="absolute inset-0 bg-gradient-to-t from-teal-500 via-teal-400 to-teal-300 opacity-20 z-0"></div>
+          <div className="relative z-10">
+            {/* Icono decorativo */}
+            <div className="flex items-center justify-center w-12 h-12 bg-teal-600 text-white rounded-full shadow-lg mb-4 mx-auto">
+              <span className="text-lg font-bold">{index + 1}</span>
             </div>
-            <h3 className="text-xl font-bold text-center">{turno.title}</h3>
+            <h3 className="text-xl font-bold text-teal-600 mb-4 text-center">
+              {turno.title}
+            </h3>
+            <p className="text-gray-700 mb-6 text-center">{turno.description}</p>
           </div>
-
-          {/* Contenido */}
-          <div className="flex-grow p-6">
-            <p className="text-gray-700 text-sm text-center">
-              {turno.description}
-            </p>
-          </div>
-
-          {/* Botón */}
-          <div className="p-6">
-            <a
-              href={`https://wa.me/573136114707?text=${encodeURIComponent(
-                turno.message
-              )}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block bg-teal-600 text-white text-center px-6 py-3 rounded-lg font-semibold shadow-md hover:bg-teal-500 transition transform hover:scale-105"
-            >
-              Solicitar Turno
-            </a>
-          </div>
+          <a
+            href={`https://wa.me/573136114707?text=${encodeURIComponent(
+              turno.message
+            )}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative z-10 inline-block bg-teal-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-teal-500 transition transform hover:scale-105 text-center"
+          >
+            Solicitar Turno
+          </a>
+          {/* Decoración de sombra */}
+          <div className="absolute inset-x-0 bottom-0 h-2 bg-teal-400 rounded-b-xl"></div>
         </div>
       ))}
     </div>

@@ -12,11 +12,11 @@ export default function TurnosCuidadoras() {
             src="/images/turnos-cuidadoras.jpg"
             alt="Turnos de Cuidadoras"
             fill
-            className="object-cover brightness-100"
+            className="object-cover brightness-110 contrast-125"
             priority
           />
         </div>
-        <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center px-6 text-center">
+        <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center px-6 text-center">
           <h1 className="text-5xl md:text-6xl font-extrabold text-white drop-shadow-lg leading-tight">
             Turnos de Cuidadoras
           </h1>
@@ -37,38 +37,48 @@ export default function TurnosCuidadoras() {
         </p>
 
         {/* Sección de turnos */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {[
             {
               title: "Turnos de 6 horas",
               description:
-                "Ideales para supervisión temporal y apoyo parcial durante el día. Perfectos para tareas específicas como monitoreo y acompañamiento en actividades puntuales.",
-              bgColor: "bg-teal-600",
+                "Supervisión temporal y apoyo parcial durante el día. Perfectos para monitoreo y actividades puntuales.",
+              bgColor: "bg-gradient-to-r from-teal-600 to-teal-500",
               textColor: "text-white",
             },
             {
               title: "Turnos de 8 y 12 horas",
               description:
-                "Cobertura extendida que garantiza cuidado continuo durante períodos prolongados, ajustándonos a tus horarios y necesidades diarias.",
-              bgColor: "bg-teal-500",
+                "Cobertura extendida para cuidado continuo durante períodos prolongados, adaptándonos a tus horarios.",
+              bgColor: "bg-gradient-to-r from-teal-500 to-teal-400",
               textColor: "text-white",
             },
             {
               title: "Turnos 24x24",
               description:
-                "Presencia continua con cambios diarios, ideal para pacientes que requieren supervisión constante y atención integral.",
-              bgColor: "bg-teal-400",
+                "Presencia continua con cambios diarios, ideal para pacientes que requieren supervisión constante.",
+              bgColor: "bg-gradient-to-r from-teal-400 to-teal-300",
               textColor: "text-white",
             },
           ].map((turno, index) => (
             <div
               key={index}
-              className={`${turno.bgColor} rounded-lg p-8 shadow-lg hover:scale-105 transform transition duration-300`}
+              className={`${turno.bgColor} rounded-xl p-6 shadow-lg hover:scale-105 transition-transform duration-300 flex flex-col justify-between`}
             >
               <h3 className={`text-2xl font-bold ${turno.textColor} mb-4`}>
                 {turno.title}
               </h3>
-              <p className={`${turno.textColor}`}>{turno.description}</p>
+              <p className={`${turno.textColor} mb-6`}>{turno.description}</p>
+              <a
+                href={`https://wa.me/573136114707?text=${encodeURIComponent(
+                  `Hola, estoy interesado en contratar el turno: ${turno.title}. ¿Podrían darme más información?`
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white text-teal-600 font-semibold px-6 py-3 rounded-full text-center shadow-md hover:bg-gray-100 transition transform hover:scale-105"
+              >
+                Solicitar Turno
+              </a>
             </div>
           ))}
         </div>

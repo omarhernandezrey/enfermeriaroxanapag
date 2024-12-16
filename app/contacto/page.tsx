@@ -1,6 +1,6 @@
 "use client";
 
-import emailjs from "emailjs-com";
+import emailjs from "@emailjs/browser";
 import React from "react";
 import {
   FaPhoneAlt,
@@ -118,43 +118,43 @@ export default function Contacto() {
       </div>
 
       {/* Información adicional de contacto */}
-      <div className="bg-teal-600 text-white py-12">
-        <div className="max-w-5xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-8">
-            Contáctanos directamente
+      <div className="relative bg-gradient-to-br from-teal-700 via-teal-600 to-teal-800 text-white py-20 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <h2 className="text-5xl font-extrabold text-center mb-10 tracking-wide">
+            Contáctanos Directamente
           </h2>
-          <div className="flex flex-col md:flex-row justify-center items-center gap-8">
+          <div className="flex flex-col md:flex-row justify-center items-center gap-10">
             {/* Botón de Teléfono */}
             <a
               href="tel:+573136114707"
-              className="flex items-center gap-4 bg-white text-teal-600 px-6 py-4 rounded-lg shadow-lg hover:bg-teal-100 hover:scale-105 transition-transform duration-300"
+              className="flex items-center gap-4 bg-white text-teal-700 px-8 py-5 rounded-full shadow-lg hover:bg-teal-100 hover:shadow-2xl transform hover:scale-110 transition-all duration-300"
             >
-              <FaPhoneAlt className="text-2xl" />
-              <span className="text-lg font-semibold">Llámanos</span>
+              <FaPhoneAlt className="text-3xl" />
+              <span className="text-lg font-bold">Llámanos</span>
             </a>
             {/* Botón de WhatsApp */}
             <a
               href="https://wa.me/573136114707?text=Hola,%20quiero%20más%20información%20sobre%20los%20servicios%20de%20Enfermería%20Roxana."
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-4 bg-green-500 text-white px-6 py-4 rounded-lg shadow-lg hover:bg-green-600 hover:scale-105 transition-transform duration-300"
+              className="flex items-center gap-4 bg-green-500 text-white px-8 py-5 rounded-full shadow-lg hover:bg-green-600 hover:shadow-2xl transform hover:scale-110 transition-all duration-300"
             >
-              <FaWhatsapp className="text-2xl" />
-              <span className="text-lg font-semibold">WhatsApp</span>
+              <FaWhatsapp className="text-3xl" />
+              <span className="text-lg font-bold">WhatsApp</span>
             </a>
           </div>
 
           {/* Redes sociales */}
-          <div className="mt-12">
-            <h2 className="text-2xl font-bold text-center mb-6">
+          <div className="mt-16">
+            <h2 className="text-3xl font-bold text-center mb-8 tracking-wide">
               Síguenos en Redes Sociales
             </h2>
-            <div className="flex justify-center space-x-6 text-3xl">
+            <div className="flex justify-center items-center gap-8 text-4xl">
               <a
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-teal-300"
+                className="text-blue-600 hover:text-blue-400 transition-transform transform hover:scale-125 duration-300"
               >
                 <FaFacebookSquare />
               </a>
@@ -162,7 +162,7 @@ export default function Contacto() {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-teal-300"
+                className="text-pink-600 hover:text-pink-400 transition-transform transform hover:scale-125 duration-300"
               >
                 <FaInstagram />
               </a>

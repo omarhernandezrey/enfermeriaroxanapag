@@ -1,14 +1,34 @@
 import type { Config } from "tailwindcss";
 
-export default {
+const config: Config = {
   content: [
-    "./app/**/*.{js,ts,jsx,tsx}", // Ruta para el sistema App Router de Next.js
-    "./pages/**/*.{js,ts,jsx,tsx}", // Ruta para páginas si usas Page Router
-    "./components/**/*.{js,ts,jsx,tsx}", // Ruta para componentes
+    "./app/**/*.{js,ts,jsx,tsx}",
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        teal: {
+          400: "#38d9a9",
+          500: "#319795",
+          600: "#2c7a7b",
+          700: "#285e61",
+        },
+        yellow: {
+          400: "#f6e05e",
+          300: "#faf089",
+        },
+      },
+      fontFamily: {
+        sans: ["Inter", "sans-serif"],
+      },
+    },
   },
-  plugins: [],
-} satisfies Config;
+  plugins: [
+    // require("@tailwindcss/aspect-ratio"),
+    // require("@tailwindcss/typography"),
+  ],
+};
 
+export default config;

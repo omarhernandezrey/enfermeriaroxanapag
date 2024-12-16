@@ -73,20 +73,22 @@ export default function Servicios() {
           ].map(({ imgSrc, title, description }, index) => (
             <div
               key={index}
-              className="bg-white shadow-lg rounded-lg p-6 transition-transform transform hover:scale-105 hover:shadow-2xl duration-300"
+              className="flex flex-col bg-white shadow-xl rounded-lg hover:shadow-2xl transition-transform transform hover:scale-105"
             >
               <div className="relative w-full h-48">
                 <Image
                   src={imgSrc}
                   alt={title}
                   fill
-                  className="object-cover rounded-lg"
+                  className="object-cover rounded-t-lg"
                 />
               </div>
-              <h3 className="text-2xl font-semibold text-teal-600 mt-4 mb-2">
-                {title}
-              </h3>
-              <p className="text-gray-600">{description}</p>
+              <div className="p-6 flex-grow">
+                <h3 className="text-2xl font-bold text-teal-600 mb-2">
+                  {title}
+                </h3>
+                <p className="text-gray-600">{description}</p>
+              </div>
             </div>
           ))}
         </div>
@@ -146,79 +148,64 @@ export default function Servicios() {
       </section>
 
       {/* Sección: Por qué elegirnos */}
-      <section className="bg-gradient-to-r from-teal-600 via-teal-500 to-teal-700 text-white py-16 mt-16 relative overflow-hidden">
-        {/* Decoración de fondo */}
-        <div className="absolute inset-0 opacity-20">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 800 600"
-            className="absolute top-0 left-0 w-full h-full"
-          >
-            <circle cx="400" cy="300" r="300" fill="white" />
-          </svg>
-        </div>
-        <div className="relative z-10 max-w-7xl mx-auto text-center px-4">
-          <h2 className="text-4xl font-extrabold mb-8 tracking-wide text-white">
+      <section className="bg-gradient-to-r from-teal-600 via-teal-500 to-teal-700 text-white py-16 mt-16">
+        <div className="max-w-7xl mx-auto text-center">
+          <h2 className="text-4xl font-extrabold mb-8">
             ¿Por qué elegir <span className="text-yellow-400">Enfermería Roxana</span>?
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
                 title: "Atención personalizada",
                 description:
                   "Adaptamos nuestros cuidados a tus necesidades específicas y las de tu médico.",
-                icon: <FaUserCheck className="text-yellow-400 text-4xl" />,
+                icon: <FaUserCheck className="text-yellow-400 text-5xl" />,
               },
               {
                 title: "Experiencia",
                 description:
                   "Nuestras enfermeras cuentan con años de experiencia, brindando cuidado profesional y humano.",
-                icon: <FaMedkit className="text-yellow-400 text-4xl" />,
+                icon: <FaMedkit className="text-yellow-400 text-5xl" />,
               },
               {
                 title: "Confianza",
                 description:
                   "Trabajamos en colaboración con médicos y especialistas, siguiendo estrictamente sus indicaciones.",
-                icon: <FaHandsHelping className="text-yellow-400 text-4xl" />,
+                icon: <FaHandsHelping className="text-yellow-400 text-5xl" />,
               },
               {
                 title: "Disponibilidad",
                 description:
                   "Ofrecemos servicios las 24 horas del día, los 7 días de la semana, con turnos adaptados a tus necesidades.",
-                icon: <FaClock className="text-yellow-400 text-4xl" />,
+                icon: <FaClock className="text-yellow-400 text-5xl" />,
               },
               {
                 title: "Humanidad",
                 description:
                   "Nos destacamos por nuestra empatía, respeto y trato cálido hacia cada paciente.",
-                icon: <FaHandHoldingHeart className="text-yellow-400 text-4xl" />,
+                icon: <FaHandHoldingHeart className="text-yellow-400 text-5xl" />,
               },
               {
                 title: "Compromiso",
                 description:
                   "Nos esforzamos por superar expectativas, garantizando bienestar y tranquilidad a cada familia.",
-                icon: <FaHeartbeat className="text-yellow-400 text-4xl" />,
+                icon: <FaHeartbeat className="text-yellow-400 text-5xl" />,
               },
             ].map(({ title, description, icon }, index) => (
               <div
                 key={index}
-                className="flex flex-col items-center text-center p-6 bg-white bg-opacity-10 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
+                className="flex flex-col items-center p-6 bg-white bg-opacity-10 rounded-lg shadow-lg hover:scale-105 transition-transform"
               >
-                <div className="w-16 h-16 mb-4 flex items-center justify-center">{icon}</div>
-                <h3 className="text-xl font-bold text-yellow-400 mb-2">{title}</h3>
-                <p className="text-sm text-gray-200">{description}</p>
+                <div className="w-16 h-16 flex items-center justify-center mb-4">
+                  {icon}
+                </div>
+                <h3 className="text-xl font-bold mb-2">{title}</h3>
+                <p className="text-gray-200 text-center">{description}</p>
               </div>
             ))}
           </div>
-          <a
-            href="/contacto"
-            className="mt-12 inline-block bg-yellow-400 text-teal-800 px-8 py-3 rounded-full font-semibold text-lg hover:bg-yellow-300 transition transform hover:scale-105"
-          >
-            Contáctanos
-          </a>
         </div>
       </section>
-
     </div>
   );
 }
