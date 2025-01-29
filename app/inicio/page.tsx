@@ -3,14 +3,23 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
+// Componente para cada Servicio en formato cuadrado (1:1)
 const ServicioCard = ({ imageSrc, title, description, link }: any) => (
-  <div className="bg-white rounded-lg shadow-md overflow-hidden transform hover:scale-105 hover:shadow-xl transition duration-300">
-    <div className="relative h-48 w-full">
-      <Image src={imageSrc} alt={title} fill className="object-cover" />
+  <div className="bg-white rounded-lg shadow-md overflow-hidden transform hover:scale-105 hover:shadow-xl transition duration-300 flex flex-col">
+    {/* Contenedor cuadrado para la imagen */}
+    <div className="relative w-full aspect-square bg-gray-200">
+      <Image
+        src={imageSrc}
+        alt={title}
+        fill
+        // Muestra toda la imagen sin recortarla
+        className="object-contain"
+      />
     </div>
-    <div className="p-6">
+    {/* Contenido de la card */}
+    <div className="p-6 flex flex-col flex-1">
       <h3 className="text-xl font-bold text-teal-600">{title}</h3>
-      <p className="text-gray-600 mt-2">{description}</p>
+      <p className="text-gray-600 mt-2 flex-grow">{description}</p>
       <a
         href={link}
         className="text-teal-500 font-semibold mt-4 inline-block hover:text-teal-700 transition"
@@ -98,7 +107,7 @@ export default function Inicio() {
           <Image
             src="/images/hero-image.jpg"
             alt="Cuidado profesional"
-            layout="fill"
+            fill
             className="object-cover brightness-50"
             priority
           />
@@ -119,7 +128,6 @@ export default function Inicio() {
           </a>
         </div>
       </div>
-
 
       {/* Sobre nosotros */}
       <div className="max-w-7xl mx-auto px-4 py-16">
@@ -172,136 +180,139 @@ export default function Inicio() {
         </div>
       </div>
 
-{/* Testimonios estilo WhatsApp mejorados */}
-<div className="bg-teal-600 text-white py-16">
-  <div className="max-w-7xl mx-auto px-4">
-    <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8">
-      Lo que Dicen Nuestros Clientes
-    </h2>
-    <div className="relative max-w-xl mx-auto bg-gray-100 p-4 rounded-lg shadow-lg">
-      {/* Contenedor del chat */}
-      <div
-        className="flex flex-col space-y-4"
-        style={{ minHeight: "300px" }} // Mantener una altura mínima para evitar saltos
-      >
-        {/* Mensaje del cliente */}
-        <div className="self-start flex items-center space-x-2 sm:space-x-3">
-          <div
-            className="w-10 h-10 flex-shrink-0 rounded-full bg-gray-300 flex items-center justify-center text-xs sm:text-sm font-bold text-teal-600"
-            style={{ aspectRatio: "1 / 1" }} // Garantiza que el contenedor sea perfectamente cuadrado
-          >
-            {testimonios[currentIndex].nombre
-              .split(" ")
-              .map((word) => word[0])
-              .join("")}
-          </div>
-          <div className="bg-white text-gray-800 px-3 py-2 rounded-2xl shadow-md max-w-[90%] sm:max-w-sm relative">
-            <p className="text-[12px] sm:text-sm italic break-words">
-              {testimonios[currentIndex].comentario}
-            </p>
-            <span className="absolute bottom-1 right-2 text-[10px] sm:text-xs text-gray-400">
-              {["10:15 AM", "3:45 PM", "9:00 PM"][currentIndex % 3]}
-            </span>
-          </div>
-        </div>
-
-        {/* Respuesta automática */}
-        <div className="self-end flex items-center space-x-2 sm:space-x-3">
-          <div className="bg-teal-500 text-white px-3 py-2 rounded-2xl shadow-md max-w-[90%] sm:max-w-sm relative">
-            <p className="text-[12px] sm:text-sm break-words">
-              Muchas gracias, {testimonios[currentIndex].nombre}. Nos alegra
-              saber que estás satisfecho con nuestro servicio. 😊
-            </p>
-            <span className="absolute bottom-1 right-2 text-[10px] sm:text-xs text-gray-200">
-              {["10:17 AM", "3:50 PM", "9:05 PM"][currentIndex % 3]}
-            </span>
-          </div>
-        </div>
-
-        {/* Mensaje adicional del cliente */}
-        {currentIndex % 2 === 0 && (
-          <div className="self-start flex items-center space-x-2 sm:space-x-3">
+      {/* Testimonios estilo WhatsApp mejorados */}
+      <div className="bg-teal-600 text-white py-16">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8">
+            Lo que Dicen Nuestros Clientes
+          </h2>
+          <div className="relative max-w-xl mx-auto bg-gray-100 p-4 rounded-lg shadow-lg">
+            {/* Contenedor del chat */}
             <div
-              className="w-10 h-10 flex-shrink-0 rounded-full bg-gray-300 flex items-center justify-center text-xs sm:text-sm font-bold text-teal-600"
-              style={{ aspectRatio: "1 / 1" }} // Garantiza que el contenedor sea perfectamente cuadrado
+              className="flex flex-col space-y-4"
+              style={{ minHeight: "300px" }}
             >
-              {testimonios[currentIndex].nombre
-                .split(" ")
-                .map((word) => word[0])
-                .join("")}
-            </div>
-            <div className="bg-white text-gray-800 px-3 py-2 rounded-2xl shadow-md max-w-[90%] sm:max-w-sm relative">
-              <p className="text-[12px] sm:text-sm italic break-words">
-                Siempre recomendaré a Enfermería Roxana. ¡Son los mejores! 💙
-              </p>
-              <span className="absolute bottom-1 right-2 text-[10px] sm:text-xs text-gray-400">
-                {["10:20 AM", "3:55 PM", "9:10 PM"][currentIndex % 3]}
-              </span>
+              {/* Mensaje del cliente */}
+              <div className="self-start flex items-center space-x-2 sm:space-x-3">
+                <div
+                  className="w-10 h-10 flex-shrink-0 rounded-full bg-gray-300 flex items-center justify-center text-xs sm:text-sm font-bold text-teal-600"
+                  style={{ aspectRatio: "1 / 1" }}
+                >
+                  {testimonios[currentIndex].nombre
+                    .split(" ")
+                    .map((word: string) => word[0])
+                    .join("")}
+                </div>
+                <div className="bg-white text-gray-800 px-3 py-2 rounded-2xl shadow-md max-w-[90%] sm:max-w-sm relative">
+                  <p className="text-[12px] sm:text-sm italic break-words">
+                    {testimonios[currentIndex].comentario}
+                  </p>
+                  <span className="absolute bottom-1 right-2 text-[10px] sm:text-xs text-gray-400">
+                    {["10:15 AM", "3:45 PM", "9:00 PM"][currentIndex % 3]}
+                  </span>
+                </div>
+              </div>
+
+              {/* Respuesta automática */}
+              <div className="self-end flex items-center space-x-2 sm:space-x-3">
+                <div className="bg-teal-500 text-white px-3 py-2 rounded-2xl shadow-md max-w-[90%] sm:max-w-sm relative">
+                  <p className="text-[12px] sm:text-sm break-words">
+                    Muchas gracias, {testimonios[currentIndex].nombre}. Nos
+                    alegra saber que estás satisfecho con nuestro servicio. 😊
+                  </p>
+                  <span className="absolute bottom-1 right-2 text-[10px] sm:text-xs text-gray-200">
+                    {["10:17 AM", "3:50 PM", "9:05 PM"][currentIndex % 3]}
+                  </span>
+                </div>
+              </div>
+
+              {/* Mensaje adicional del cliente */}
+              {currentIndex % 2 === 0 && (
+                <div className="self-start flex items-center space-x-2 sm:space-x-3">
+                  <div
+                    className="w-10 h-10 flex-shrink-0 rounded-full bg-gray-300 flex items-center justify-center text-xs sm:text-sm font-bold text-teal-600"
+                    style={{ aspectRatio: "1 / 1" }}
+                  >
+                    {testimonios[currentIndex].nombre
+                      .split(" ")
+                      .map((word: string) => word[0])
+                      .join("")}
+                  </div>
+                  <div className="bg-white text-gray-800 px-3 py-2 rounded-2xl shadow-md max-w-[90%] sm:max-w-sm relative">
+                    <p className="text-[12px] sm:text-sm italic break-words">
+                      Siempre recomendaré a Enfermería Roxana. ¡Son los mejores!
+                      💙
+                    </p>
+                    <span className="absolute bottom-1 right-2 text-[10px] sm:text-xs text-gray-400">
+                      {["10:20 AM", "3:55 PM", "9:10 PM"][currentIndex % 3]}
+                    </span>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
-        )}
+
+          {/* Navegación de testimonios */}
+          <div className="flex justify-center space-x-2 mt-6">
+            {testimonios.map((_, index) => (
+              <button
+                key={index}
+                className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
+                  index === currentIndex
+                    ? "bg-teal-300 scale-125"
+                    : "bg-gray-400"
+                }`}
+                onClick={() => setCurrentIndex(index)}
+                aria-label={`Ver testimonio ${index + 1}`}
+              ></button>
+            ))}
+          </div>
+        </div>
       </div>
-    </div>
-    {/* Navegación de testimonios */}
-    <div className="flex justify-center space-x-2 mt-6">
-      {testimonios.map((_, index) => (
-        <button
-          key={index}
-          className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
-            index === currentIndex ? "bg-teal-300 scale-125" : "bg-gray-400"
-          }`}
-          onClick={() => setCurrentIndex(index)}
-          aria-label={`Ver testimonio ${index + 1}`}
-        ></button>
-      ))}
-    </div>
-  </div>
-</div>
-
-
 
       {/* Turnos */}
       <div className="py-16 bg-gradient-to-r from-gray-100 to-gray-200">
-  <div className="max-w-7xl mx-auto px-4">
-    <h2 className="text-3xl sm:text-4xl font-bold text-teal-600 text-center mb-12">
-      Elige tu Turno Ideal
-    </h2>
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-      {turnos.map((turno, index) => (
-        <div
-          key={index}
-          className="flex flex-col justify-between bg-white rounded-xl shadow-lg p-6 transform hover:scale-105 transition duration-300 relative overflow-hidden"
-        >
-          {/* Fondo decorativo */}
-          <div className="absolute inset-0 bg-gradient-to-t from-teal-500 via-teal-400 to-teal-300 opacity-20 z-0"></div>
-          <div className="relative z-10">
-            {/* Icono decorativo */}
-            <div className="flex items-center justify-center w-12 h-12 bg-teal-600 text-white rounded-full shadow-lg mb-4 mx-auto">
-              <span className="text-lg font-bold">{index + 1}</span>
-            </div>
-            <h3 className="text-xl font-bold text-teal-600 mb-4 text-center">
-              {turno.title}
-            </h3>
-            <p className="text-gray-700 mb-6 text-center">{turno.description}</p>
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-teal-600 text-center mb-12">
+            Elige tu Turno Ideal
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {turnos.map((turno, index) => (
+              <div
+                key={index}
+                className="flex flex-col justify-between bg-white rounded-xl shadow-lg p-6 transform hover:scale-105 transition duration-300 relative overflow-hidden"
+              >
+                {/* Fondo decorativo */}
+                <div className="absolute inset-0 bg-gradient-to-t from-teal-500 via-teal-400 to-teal-300 opacity-20 z-0"></div>
+                <div className="relative z-10">
+                  {/* Icono decorativo */}
+                  <div className="flex items-center justify-center w-12 h-12 bg-teal-600 text-white rounded-full shadow-lg mb-4 mx-auto">
+                    <span className="text-lg font-bold">{index + 1}</span>
+                  </div>
+                  <h3 className="text-xl font-bold text-teal-600 mb-4 text-center">
+                    {turno.title}
+                  </h3>
+                  <p className="text-gray-700 mb-6 text-center">
+                    {turno.description}
+                  </p>
+                </div>
+                <a
+                  href={`https://wa.me/573136114707?text=${encodeURIComponent(
+                    turno.message
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative z-10 inline-block bg-teal-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-teal-500 transition transform hover:scale-105 text-center"
+                >
+                  Solicitar Turno
+                </a>
+                {/* Decoración de sombra */}
+                <div className="absolute inset-x-0 bottom-0 h-2 bg-teal-400 rounded-b-xl"></div>
+              </div>
+            ))}
           </div>
-          <a
-            href={`https://wa.me/573136114707?text=${encodeURIComponent(
-              turno.message
-            )}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="relative z-10 inline-block bg-teal-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-teal-500 transition transform hover:scale-105 text-center"
-          >
-            Solicitar Turno
-          </a>
-          {/* Decoración de sombra */}
-          <div className="absolute inset-x-0 bottom-0 h-2 bg-teal-400 rounded-b-xl"></div>
         </div>
-      ))}
-    </div>
-  </div>
-</div>
-
+      </div>
     </div>
   );
 }
