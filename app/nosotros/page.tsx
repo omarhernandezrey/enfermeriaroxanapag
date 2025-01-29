@@ -18,7 +18,7 @@ export default function Nosotros() {
     },
     {
       name: "Andrea Rey",
-      role: "Enfermera Especialista",
+      role: "cuidadora con experiencia.",
       image: "/images/andrea-rey.jpg",
     },
     {
@@ -37,7 +37,7 @@ export default function Nosotros() {
       image: "/images/yiselaHernandez.jpg",
     },
     {
-      name: "Claudia Orjuela",
+      name: "Claudia Ladino Cadena",
       role: "Enfermera Especialista",
       image: "/images/ClaudiaOrjuela.jpg",
     },
