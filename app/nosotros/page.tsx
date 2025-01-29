@@ -26,6 +26,21 @@ export default function Nosotros() {
       role: "Enfermera Especialista",
       image: "/images/luz-jasmin.jpg",
     },
+    {
+      name: "Yenis Garrido",
+      role: "Enfermera Especialista",
+      image: "/images/Yenis-Garrido.jpg",
+    },
+    {
+      name: "Ninfa Yisela Hernández",
+      role: "Enfermera Especialista",
+      image: "/images/yiselaHernandez.jpg",
+    },
+    {
+      name: "Claudia Orjuela",
+      role: "Enfermera Especialista",
+      image: "/images/ClaudiaOrjuela.jpg",
+    },
   ];
 
   const values = [
@@ -59,13 +74,13 @@ export default function Nosotros() {
   return (
     <div className="bg-gray-50 text-gray-800">
       {/* Hero Section */}
-      <div className="relative bg-teal-600 text-white h-[70vh] flex items-center justify-center">
+      <div className="relative bg-teal-600 text-white flex items-center justify-center h-[60vh] md:h-[70vh]">
         <div className="absolute inset-0">
           <Image
             src="/images/roxana-sagre.jpg"
             alt="Equipo profesional"
             fill
-            className="object-cover"
+            className="object-cover object-center"
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-t from-teal-900 via-teal-600 to-transparent opacity-80"></div>
@@ -74,7 +89,7 @@ export default function Nosotros() {
           <h1 className="text-4xl md:text-6xl font-bold leading-tight drop-shadow-lg">
             Conoce a Enfermería Roxana
           </h1>
-          <p className="mt-4 text-lg md:text-xl">
+          <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto">
             Innovación, cuidado humano y compromiso con tu bienestar.
           </p>
         </div>
@@ -83,7 +98,7 @@ export default function Nosotros() {
       {/* Misión y Visión */}
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="text-center md:text-left">
+          <div>
             <h2 className="text-3xl font-bold text-teal-600 mb-4">
               Nuestra Misión
             </h2>
@@ -93,7 +108,7 @@ export default function Nosotros() {
               calidad de vida de nuestros pacientes y sus familias.
             </p>
           </div>
-          <div className="text-center md:text-left">
+          <div>
             <h2 className="text-3xl font-bold text-teal-600 mb-4">
               Nuestra Visión
             </h2>
@@ -112,21 +127,35 @@ export default function Nosotros() {
           <h2 className="text-3xl font-bold text-teal-600 text-center mb-8">
             Conoce a Nuestro Equipo
           </h2>
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <p className="max-w-2xl mx-auto text-center text-gray-700 mb-10">
+            Somos un equipo de enfermería altamente capacitado, con amplia
+            experiencia en atención domiciliaria y hospitalaria. Nuestro
+            compromiso es tu salud y bienestar, y trabajamos incansablemente
+            para brindarte un servicio de primera clase con empatía, dedicación
+            y profesionalismo. ¡Confía en nosotros y descubre por qué somos el
+            mejor equipo de enfermería!
+          </p>
+
+          {/* Grid de tarjetas */}
+          <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {teamMembers.map((member, index) => (
               <div
                 key={index}
-                className="bg-white rounded-lg shadow-lg overflow-hidden hover:scale-105 transition duration-300"
+                className="bg-white rounded-lg shadow-lg overflow-hidden 
+                           hover:scale-105 transition-transform duration-300 flex flex-col"
               >
-                <div className="relative w-full h-64">
+                {/* Contenedor con proporción 3:4 (vertical) */}
+                <div className="w-full aspect-[3/4] relative">
                   <Image
                     src={member.image}
                     alt={member.name}
                     fill
+                    // Llenamos todo el espacio, manteniendo tarjeta uniforme
                     className="object-cover"
                   />
                 </div>
-                <div className="p-6 text-center">
+
+                <div className="p-6 text-center flex-1 flex flex-col justify-center">
                   <h3 className="text-xl font-bold text-teal-600">
                     {member.name}
                   </h3>
@@ -146,7 +175,8 @@ export default function Nosotros() {
             {values.map((value, index) => (
               <div
                 key={index}
-                className="bg-white bg-opacity-10 rounded-lg p-6 shadow-lg text-center hover:scale-105 transition duration-300"
+                className="bg-white bg-opacity-10 rounded-lg p-6 shadow-lg text-center 
+                           hover:scale-105 transition-transform duration-300"
               >
                 <div className="flex items-center justify-center mb-4 text-5xl text-yellow-300">
                   {value.icon}
@@ -177,17 +207,19 @@ export default function Nosotros() {
 
       {/* Llamada a la acción */}
       <div className="bg-teal-500 text-white py-12">
-        <div className="max-w-7xl mx-auto text-center">
+        <div className="max-w-7xl mx-auto text-center px-4">
           <h2 className="text-3xl font-bold mb-4">
             ¿Necesitas nuestros servicios?
           </h2>
-          <p className="text-lg mb-6">
+          <p className="text-lg mb-6 max-w-2xl mx-auto">
             Contáctanos hoy mismo para brindarte la mejor atención profesional y
-            humana.
+            humana. Nuestro equipo está listo para acompañarte en cada paso de tu
+            proceso de cuidado.
           </p>
           <a
             href="/contacto"
-            className="inline-block bg-white text-teal-600 px-8 py-3 rounded-lg shadow-lg font-semibold text-lg hover:bg-teal-100 transition transform hover:scale-105"
+            className="inline-block bg-white text-teal-600 px-8 py-3 rounded-lg shadow-lg 
+                       font-semibold text-lg hover:bg-teal-100 hover:scale-105 transition-transform"
           >
             Contáctanos
           </a>
