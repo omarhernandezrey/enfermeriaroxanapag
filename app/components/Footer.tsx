@@ -7,9 +7,9 @@ const Footer = () => {
         {/* Sección superior del footer */}
         <div className="flex flex-col md:flex-row items-center justify-between">
           <div className="text-center md:text-left">
-            <h2 className="text-2xl font-bold text-teal-400">Enfermería Roxana</h2>
+            <h2 className="text-2xl font-bold text-teal-400">Roxana Enfermera</h2>
             <p className="text-sm mt-2">
-              Brindando cuidado profesional y humano las 24 horas.
+              Cuidado premium en casa en el norte de Bogotá.
             </p>
           </div>
           <div className="mt-4 md:mt-0 flex space-x-6">
@@ -59,24 +59,29 @@ const Footer = () => {
         {/* Información de contacto */}
         <div className="text-center">
           <p className="text-sm">
-            © {new Date().getFullYear()} Enfermería Roxana. Todos los derechos reservados.
+            © {new Date().getFullYear()} Enfermería Roxana. Todos los derechos
+            reservados.
           </p>
-          <p className="text-sm mt-2">
-            Contacto:{" "}
-            <a
-              href="mailto:roxanapatriciasagrealean@gmail.com"
-              className="text-teal-400 hover:underline"
-            >
-              roxanapatriciasagrealean@gmail.com
-            </a>{" "}
-            | Teléfono:{" "}
-            <a
-              href="tel:+573136114707"
-              className="text-teal-400 hover:underline"
-            >
-              +57 313 611 4707
-            </a>
-          </p>
+          <div className="text-sm mt-2 space-y-1">
+            <p>
+              Correo:{" "}
+              <a
+                href="mailto:roxanapatriciasagrealean@gmail.com"
+                className="text-teal-400 hover:underline"
+              >
+                roxanapatriciasagrealean@gmail.com
+              </a>
+            </p>
+            <p>
+              Celular / WhatsApp:{" "}
+              <a
+                href="tel:+573136114707"
+                className="text-teal-400 hover:underline"
+              >
+                +57 313 611 4707
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </footer>

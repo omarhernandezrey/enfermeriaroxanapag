@@ -53,7 +53,7 @@ const FloatingButtons: React.FC = () => {
 
       {/* Botón de WhatsApp */}
       <a
-        href="https://wa.me/573136114707?text=Hola,%20estoy%20interesado%20en%20el%20servicio%20de%20enfermería%20domiciliaria."
+        href="https://wa.me/573136114707?text=Hola,%20necesito%20enfermera%20a%20domicilio%20en%20Bogot%C3%A1%20norte.%20%C2%BFTienen%20disponibilidad%20hoy%3F"
         className="relative group bg-green-500 text-white p-4 rounded-full shadow-lg flex items-center justify-center hover:bg-green-600 transition duration-300"
         aria-label="WhatsApp"
         target="_blank"

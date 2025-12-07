@@ -1,7 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { FiMenu, FiX, FiHome, FiUser, FiPhone } from "react-icons/fi";
+import {
+  FiMenu,
+  FiX,
+  FiHome,
+  FiUser,
+  FiPhone,
+  FiMapPin,
+} from "react-icons/fi";
 import { MdMedicalServices } from "react-icons/md";
 import { FaFacebookSquare, FaInstagram, FaWhatsapp } from "react-icons/fa";
 
@@ -70,6 +77,12 @@ const MobileMenu = () => {
                 Nosotros
               </a>
             </li>
+            <li className="flex items-center space-x-3 px-3 py-2 hover:bg-teal-500 transition-all duration-200 rounded-lg">
+              <FiMapPin className="text-2xl" />
+              <a href="/inicio#zonas" onClick={closeMenu} className="hover:text-teal-300">
+                Zonas VIP
+              </a>
+            </li>
             <li>
               <div className="flex items-center justify-between px-3 py-2 hover:bg-teal-500 transition-all duration-200 rounded-lg">
                 <a href="/servicios" onClick={closeMenu} className="flex items-center">
@@ -105,6 +118,12 @@ const MobileMenu = () => {
                   ))}
                 </ul>
               )}
+            </li>
+            <li className="flex items-center space-x-3 px-3 py-2 hover:bg-teal-500 transition-all duration-200 rounded-lg">
+              <FiPhone className="text-2xl" />
+              <a href="/inicio#testimonios" onClick={closeMenu} className="hover:text-teal-300">
+                Testimonios
+              </a>
             </li>
             <li className="flex items-center space-x-3 px-3 py-2 hover:bg-teal-500 transition-all duration-200 rounded-lg">
               <FiPhone className="text-2xl" />
