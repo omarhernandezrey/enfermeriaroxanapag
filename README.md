@@ -55,6 +55,7 @@ npm run lint         # lint con Next/ESLint
 - Errores de lint: ejecutar `npm run lint` y revisar rutas mencionadas.
 - Imágenes rotas al compartir: confirmar que `/public/seo.png` existe y que la URL canonical está correcta.
 - Desbordes en móvil: verificar los `max-w` en el mock de chat (`app/inicio/page.tsx`).
+- Formulario de contacto: requiere credenciales de EmailJS (`NEXT_PUBLIC_EMAILJS_SERVICE_ID`, `NEXT_PUBLIC_EMAILJS_TEMPLATE_ID`, `NEXT_PUBLIC_EMAILJS_PUBLIC_KEY`). Si faltan o fallan, el usuario verá un mensaje con alternativas (correo/WhatsApp).
 
 ## Licencia
 Privado. Uso interno para Roxana Enfermera.

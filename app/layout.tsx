@@ -131,7 +131,9 @@ export default function RootLayout({
     "Palermo",
     "Teusaquillo",
   ];
-  const canonicalUrl = "https://enfermeriaroxana.com/inicio";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://enfermeriaroxana.com";
+  const canonicalUrl = `${siteUrl}/inicio`;
+  const ogImage = `${siteUrl}/seo.png`;
   const seoKeywords = `enfermería domiciliaria bogotá, enfermería norte de bogotá, enfermera chapinero, enfermera usaquén, enfermería suba, cuidado en casa, enfermera a domicilio, turno 24/7, cuidados paliativos, acompañamiento hospitalario, ${zonasTicker.join(
     ", "
   )}`;
@@ -195,13 +197,18 @@ export default function RootLayout({
           property="og:description"
           content="Cuidado humano en casa en el norte de Bogotá y Chapinero. Respuesta en minutos, enfermeras jefes y turnos 24/7."
         />
-        <meta property="og:image" content="/seo.png" />
-        <meta property="og:image:secure_url" content="/seo.png" />
+        <meta property="og:image" content={ogImage} />
+        <meta property="og:image:secure_url" content={ogImage} />
         <meta property="og:image:type" content="image/png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Roxana Enfermera - contacto inmediato para enfermería a domicilio en Bogotá" />
         <meta property="og:locale" content="es_CO" />
+        <meta property="og:site_name" content="Roxana Enfermera" />
+        <meta property="og:updated_time" content={new Date().toISOString()} />
+        <meta property="al:web:url" content={canonicalUrl} />
+        {/* Facebook/LinkedIn usan OG; WhatsApp también */}
+
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content={canonicalUrl} />
         <meta property="twitter:title" content="Roxana Enfermera | Norte de Bogotá" />
@@ -209,9 +216,9 @@ export default function RootLayout({
           property="twitter:description"
           content="Cuidado humano en casa en el norte de Bogotá y Chapinero. Respuesta en minutos, enfermeras jefes y turnos 24/7."
         />
-        <meta property="twitter:image" content="/seo.png" />
+        <meta property="twitter:image" content={ogImage} />
         <meta name="twitter:image:alt" content="Roxana Enfermera - contacta ya para enfermería a domicilio en Bogotá" />
-        <meta property="og:site_name" content="Roxana Enfermera" />
+        <meta name="twitter:site" content="@roxanaenfermera" />
         <link rel="canonical" href={canonicalUrl} />
         <link rel="alternate" hrefLang="es-CO" href={canonicalUrl} />
         <link rel="alternate" hrefLang="x-default" href={canonicalUrl} />

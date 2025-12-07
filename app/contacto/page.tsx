@@ -1,7 +1,7 @@
 "use client";
 
 import emailjs from "@emailjs/browser";
-import React from "react";
+import React, { useState } from "react";
 import {
   FaPhoneAlt,
   FaWhatsapp,
@@ -10,24 +10,70 @@ import {
 } from "react-icons/fa";
 
 export default function Contacto() {
+  const [toast, setToast] = useState<{
+    text: string;
+    type: "success" | "error";
+  } | null>(null);
+
+  const showToast = (text: string, type: "success" | "error") => {
+    setToast({ text, type });
+    setTimeout(() => setToast(null), 4000);
+  };
+
+  const serviceId =
+    process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "service_qp54oaf";
+  const templateId =
+    process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "template_3hq4kxx";
+  const publicKey =
+    process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "x2atfk6sd3q0ZLUMV";
+
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    if (!serviceId || !templateId || !publicKey) {
+      showToast(
+        "No se pudo enviar desde el formulario. Escríbenos a roxanapatriciasagrealean@gmail.com o por WhatsApp.",
+        "error"
+      );
+      return;
+    }
+
     emailjs
       .sendForm(
-        "service_qp54oaf", // Asegúrate de que este ID sea correcto
-        "template_3hq4kxx", // Asegúrate de que este ID sea correcto
+        serviceId,
+        templateId,
         e.currentTarget,
-        "x2atfk6sd3q0ZLUMV" // Asegúrate de que este ID sea correcto
+        publicKey
       )
       .then(
         (result) => {
           console.log("Mensaje enviado:", result.text);
-          alert("Mensaje enviado exitosamente.");
+          showToast("Mensaje enviado exitosamente.", "success");
         },
         (error) => {
-          console.error("Error al enviar mensaje:", error.text);
-          alert("Ocurrió un error al enviar el mensaje.");
+          const errorText =
+            typeof error?.text === "string"
+              ? error.text
+              : typeof error === "string"
+              ? error
+              : "";
+          const isInvalidGrant =
+            errorText.toLowerCase().includes("invalid grant") ||
+            errorText.toLowerCase().includes("gmail_api");
+
+          console.error("Error al enviar mensaje:", errorText || error);
+
+          if (isInvalidGrant) {
+            showToast(
+              "La conexión Gmail del formulario caducó. Reautorízala en EmailJS. Mientras tanto, escríbenos a roxanapatriciasagrealean@gmail.com o por WhatsApp.",
+              "error"
+            );
+          } else {
+            showToast(
+              "Ocurrió un error al enviar el mensaje. Escríbenos directo a roxanapatriciasagrealean@gmail.com o por WhatsApp.",
+              "error"
+            );
+          }
         }
       );
 
@@ -36,6 +82,22 @@ export default function Contacto() {
 
   return (
     <div className="bg-gray-50 text-gray-800">
+      {toast && (
+        <div className="fixed top-4 right-4 z-50">
+          <div
+            className={`rounded-xl px-5 py-4 shadow-2xl border-2 max-w-sm ${
+              toast.type === "success"
+                ? "bg-white text-teal-900 border-teal-300"
+                : "bg-white text-rose-900 border-rose-300"
+            }`}
+          >
+            <p className="font-bold text-base tracking-wide">
+              {toast.type === "success" ? "Enviado" : "Aviso"}
+            </p>
+            <p className="text-sm mt-1 leading-snug">{toast.text}</p>
+          </div>
+        </div>
+      )}
       {/* Hero Section */}
       <div className="relative bg-teal-600 text-white h-72 flex flex-col items-center justify-center text-center px-6">
         <h1 className="text-4xl md:text-5xl font-bold">Contáctanos</h1>
