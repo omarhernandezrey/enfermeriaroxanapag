@@ -135,7 +135,7 @@ export default function RootLayout({
     process.env.NEXT_PUBLIC_SITE_URL ||
     "https://enfermeria-roxana.vercel.app";
   const canonicalUrl = `${siteUrl}/inicio`;
-  const ogImage = `${siteUrl}/seo.png`;
+  const ogImage = `${siteUrl}/seo.png?v=2`;
   const seoKeywords = `enfermería domiciliaria bogotá, enfermería norte de bogotá, enfermera chapinero, enfermera usaquén, enfermería suba, cuidado en casa, enfermera a domicilio, turno 24/7, cuidados paliativos, acompañamiento hospitalario, ${zonasTicker.join(
     ", "
   )}`;
@@ -179,7 +179,7 @@ export default function RootLayout({
         />
         <meta
           name="description"
-          content="Servicios de enfermería domiciliaria en casa para el cuidado de pacientes en el norte de Bogotá y Chapinero. Turnos 24/7, enfermeras jefes, acompañamiento hospitalario y paliativos."
+          content="Servicios de enfermería domiciliaria en casa para el cuidado de pacientes, con enfermeras jefes y auxiliares. Norte de Bogotá y Chapinero. Turnos 24/7 y acompañamiento hospitalario."
         />
         <meta
           name="keywords"
