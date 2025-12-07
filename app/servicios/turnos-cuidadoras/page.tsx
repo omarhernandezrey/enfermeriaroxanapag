@@ -143,7 +143,7 @@ export default function TurnosCuidadoras() {
           </p>
           <a
             href="/contacto"
-            className="inline-block bg-yellow-400 text-teal-800 px-8 py-3 rounded-full font-semibold text-lg shadow-lg hover:bg-yellow-300 transition transform hover:scale-105"
+            className="inline-block bg-teal-600 text-white px-8 py-3 rounded-full font-semibold text-lg shadow-lg hover:bg-teal-700 transition transform hover:scale-105"
           >
             Contáctanos
           </a>

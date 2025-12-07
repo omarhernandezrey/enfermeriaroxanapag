@@ -148,10 +148,10 @@ export default function Servicios() {
       </section>
 
       {/* Sección: Por qué elegirnos */}
-      <section className="bg-gradient-to-r from-teal-600 via-teal-500 to-teal-700 text-white py-16 mt-16">
+      <section className="bg-gradient-to-r from-teal-700 via-teal-600 to-teal-700 text-white py-16 mt-16">
         <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-4xl font-extrabold mb-8">
-            ¿Por qué elegir <span className="text-yellow-400">Enfermería Roxana</span>?
+            ¿Por qué elegir <span className="text-cyan-100">Enfermería Roxana</span>?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
@@ -159,37 +159,37 @@ export default function Servicios() {
                 title: "Atención personalizada",
                 description:
                   "Adaptamos nuestros cuidados a tus necesidades específicas y las de tu médico.",
-                icon: <FaUserCheck className="text-yellow-400 text-5xl" />,
+                icon: <FaUserCheck className="text-cyan-100 text-5xl" />,
               },
               {
                 title: "Experiencia",
                 description:
                   "Nuestras enfermeras cuentan con años de experiencia, brindando cuidado profesional y humano.",
-                icon: <FaMedkit className="text-yellow-400 text-5xl" />,
+                icon: <FaMedkit className="text-cyan-100 text-5xl" />,
               },
               {
                 title: "Confianza",
                 description:
                   "Trabajamos en colaboración con médicos y especialistas, siguiendo estrictamente sus indicaciones.",
-                icon: <FaHandsHelping className="text-yellow-400 text-5xl" />,
+                icon: <FaHandsHelping className="text-cyan-100 text-5xl" />,
               },
               {
                 title: "Disponibilidad",
                 description:
                   "Ofrecemos servicios las 24 horas del día, los 7 días de la semana, con turnos adaptados a tus necesidades.",
-                icon: <FaClock className="text-yellow-400 text-5xl" />,
+                icon: <FaClock className="text-cyan-100 text-5xl" />,
               },
               {
                 title: "Humanidad",
                 description:
                   "Nos destacamos por nuestra empatía, respeto y trato cálido hacia cada paciente.",
-                icon: <FaHandHoldingHeart className="text-yellow-400 text-5xl" />,
+                icon: <FaHandHoldingHeart className="text-cyan-100 text-5xl" />,
               },
               {
                 title: "Compromiso",
                 description:
                   "Nos esforzamos por superar expectativas, garantizando bienestar y tranquilidad a cada familia.",
-                icon: <FaHeartbeat className="text-yellow-400 text-5xl" />,
+                icon: <FaHeartbeat className="text-cyan-100 text-5xl" />,
               },
             ].map(({ title, description, icon }, index) => (
               <div

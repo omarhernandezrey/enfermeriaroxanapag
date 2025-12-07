@@ -54,6 +54,24 @@ export default function Contacto() {
         <h2 className="text-3xl font-bold text-teal-600 text-center mb-8">
           Envíanos un mensaje
         </h2>
+        <div className="bg-teal-50 border border-teal-100 text-teal-800 rounded-lg p-4 mb-6 text-center text-sm sm:text-base">
+          También puedes escribirnos o llamarnos directamente:
+          <div className="mt-2 flex flex-col sm:flex-row sm:justify-center sm:space-x-4 space-y-1 sm:space-y-0 font-semibold">
+            <a
+              href="mailto:roxanapatriciasagrealean@gmail.com"
+              className="underline underline-offset-4 hover:text-teal-900"
+            >
+              roxanapatriciasagrealean@gmail.com
+            </a>
+            <span className="hidden sm:inline">|</span>
+            <a
+              href="tel:+573136114707"
+              className="underline underline-offset-4 hover:text-teal-900"
+            >
+              +57 313 611 4707
+            </a>
+          </div>
+        </div>
         <form
           onSubmit={sendEmail}
           className="bg-white shadow-lg rounded-lg p-8"
@@ -142,6 +160,24 @@ export default function Contacto() {
               <FaWhatsapp className="text-3xl" />
               <span className="text-lg font-bold">WhatsApp</span>
             </a>
+          </div>
+
+          <div className="mt-10 text-center text-sm sm:text-base text-white/90">
+            ¿Prefieres email o llamada tradicional? Escríbenos a{" "}
+            <a
+              href="mailto:roxanapatriciasagrealean@gmail.com"
+              className="font-semibold underline underline-offset-4 hover:text-white"
+            >
+              roxanapatriciasagrealean@gmail.com
+            </a>{" "}
+            o llama al{" "}
+            <a
+              href="tel:+573136114707"
+              className="font-semibold underline underline-offset-4 hover:text-white"
+            >
+              +57 313 611 4707
+            </a>
+            .
           </div>
 
           {/* Redes sociales */}

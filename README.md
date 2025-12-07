@@ -1,37 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Roxana Enfermera – Sitio web Next.js
 
-## Getting Started
+Sitio público para agendar enfermeras jefes y auxiliares en Usaquén, Chapinero y el norte de Bogotá. Incluye simulación de chat estilo WhatsApp, sección de servicios y SEO local optimizado por barrio.
 
-First, run the development server:
+## Requisitos
+- Node.js 20+
+- npm (incluido con Node)
+- Sin dependencias globales adicionales.
 
+## Instalación y ejecución
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install          # instala dependencias
+npm run dev          # arranca en http://localhost:3000
+npm run lint         # lint con Next/ESLint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Scripts útiles
+- `npm run dev`: servidor de desarrollo con HMR.
+- `npm run lint`: validación de estilo y tipos básicos.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Estructura principal
+- `app/`: rutas, páginas y componentes (App Router).
+  - `app/inicio/page.tsx`: landing principal con héroe, servicios y testimonios estilo WhatsApp.
+  - `app/nosotros/page.tsx`: información de equipo y flujo de chat extendido.
+  - `app/components/`: footer, menú móvil, botones flotantes.
+- `public/images/`: recursos estáticos (logos, fondos, avatares, `seo.png` para sharing).
+- `metadata.ts`: título/descripcion base para Next Metadata API.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Contenido y estilo
+- **Hero**: CTA de WhatsApp y llamada directa, línea destacada en verde con el número +57 313 611 4707.
+- **Chat WhatsApp**: burbujas verde/blanco, avatares pequeños, días separados y aviso de mensajes temporales. Mensajes son humanizados y coherentes con roles familiares y clínicos.
+- **Cintilla de zonas**: carrusel continuo de barrios con borde esmeralda animado (solo borde superior/inferior, sin laterales).
 
-## Learn More
+## SEO y sharing
+- Meta OpenGraph/Twitter con `seo.png` (1200x630) y alt orientado a contacto inmediato.
+- Canonical y hreflang (`es-CO`, `x-default`) apuntan a `https://enfermeriaroxana.com/inicio`.
+- Palabras clave incluyen servicios y todos los barrios del norte de Bogotá/Chapinero.
+- JSON-LD `HomeHealthCareService` con `serviceArea` por barrio y datos de contacto.
 
-To learn more about Next.js, take a look at the following resources:
+## Ajustes de contenido
+- Para cambiar testimonios o roles: editar `chatMessages` en `app/inicio/page.tsx`.
+- Avatares disponibles en `public/images/avatar`; el mapa `avatarMap` vincula cada nombre.
+- Colores y gradientes principales están en clases Tailwind dentro de los componentes.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Accesibilidad y rendimiento
+- Imágenes con `next/image` y `alt`.
+- Menús y botones con focus/hover y textos claros.
+- Componentes pesados cargados dinámicamente en `app/layout.tsx` (footer, menú móvil).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Despliegue
+- Probado con Next 15; listo para Vercel o cualquier hosting Node compatible.
+- Ajusta `next.config.ts` si cambias el destino de la redirección raíz.
 
-## Deploy on Vercel
+## Troubleshooting
+- Errores de lint: ejecutar `npm run lint` y revisar rutas mencionadas.
+- Imágenes rotas al compartir: confirmar que `/public/seo.png` existe y que la URL canonical está correcta.
+- Desbordes en móvil: verificar los `max-w` en el mock de chat (`app/inicio/page.tsx`).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# enfermeriaroxanapag
+## Licencia
+Privado. Uso interno para Roxana Enfermera.
