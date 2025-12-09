@@ -136,10 +136,14 @@ export default function RootLayout({
     "https://enfermeria-roxana.vercel.app";
   const canonicalUrl = `${siteUrl}/inicio`;
   const ogImage = `${siteUrl}/seo-convertido-a-1000x525.jpeg?v=3`;
-  const fbAppId = process.env.NEXT_PUBLIC_FB_APP_ID;
-  const isValidFbAppId = Boolean(
-    fbAppId && /^[1-9][0-9]{6,}$/.test(fbAppId)
-  ); // Evitar enviar IDs vacíos o de prueba
+  
+  // Lógica robusta para fb:app_id: usar env si es válido, sino fallback
+  const rawFbAppId = process.env.NEXT_PUBLIC_FB_APP_ID;
+  const fallbackFbAppId = "966242223397117";
+  const isNumeric = (val: string | undefined) => /^[1-9][0-9]{6,}$/.test(val || "");
+  const fbAppId = isNumeric(rawFbAppId) ? rawFbAppId : fallbackFbAppId;
+  const isValidFbAppId = isNumeric(fbAppId);
+
   const seoKeywords = `enfermería domiciliaria bogotá, enfermería norte de bogotá, enfermera chapinero, enfermera usaquén, enfermería suba, cuidado en casa, enfermera a domicilio, turno 24/7, cuidados paliativos, acompañamiento hospitalario, ${zonasTicker.join(
     ", "
   )}`;
