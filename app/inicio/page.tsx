@@ -199,7 +199,7 @@ export default function Inicio() {
       imageSrc: "/images/enfermeria-domiciliaria.jpg",
       title: "Enfermería domiciliaria 24/7",
       description:
-        "Procedimientos, curaciones avanzadas y administración de medicamentos en casa. Enfermeras jefes con experiencia hospitalaria.",
+        "Procedimientos, curaciones avanzadas y administración de medicamentos en casa. Enfermeras con experiencia hospitalaria y apoyo de auxiliares.",
       cta: "Agendar enfermera",
     },
     {
@@ -266,7 +266,7 @@ export default function Inicio() {
     {
       icon: <FiShield className="text-3xl text-cyan-100" />,
       title: "Personal verificado",
-      desc: "Enfermeras jefes y auxiliares con experiencia hospitalaria y validación de antecedentes.",
+      desc: "Enfermeras y auxiliares con experiencia hospitalaria y validación de antecedentes.",
     },
     {
       icon: <FiCheckCircle className="text-3xl text-cyan-100" />,
@@ -330,7 +330,7 @@ export default function Inicio() {
               Roxana Enfermera
             </h1>
             <p className="text-lg md:text-xl text-gray-100 leading-relaxed">
-              Enfermeras jefes y auxiliares verificadas para cuidado en casa,
+              Enfermeras y auxiliares verificadas para cuidado en casa,
               acompañamiento hospitalario y turnos 24/7. Cuidamos a tus
               familiares con la misma dedicación que a los nuestros.
             </p>
@@ -560,7 +560,7 @@ export default function Inicio() {
             <div className="relative w-full max-w-[92vw] sm:max-w-[400px] md:max-w-[420px] mx-auto">
               <div className="relative rounded-[20px] overflow-hidden shadow-[0_12px_40px_rgba(0,0,0,0.25)] border border-[#d9d9d9] bg-[#eae6df]">
                 <div className="bg-[#008069] px-3 sm:px-4 py-3 flex items-center gap-3 text-white">
-                  <div className="relative w-9 h-9 rounded-full overflow-hidden border-2 border-[#006c5a] shadow-sm">
+                  <div className="relative w-9 h-9 shrink-0 aspect-square rounded-full overflow-hidden border-2 border-[#006c5a] shadow-sm">
                     <Image
                       src="/images/logo.png"
                       alt="Logo Roxana"
@@ -626,7 +626,7 @@ export default function Inicio() {
                         )}
                         <div className={`flex ${isOutgoing ? "justify-end" : "justify-start"} items-start gap-2`}>
                           {!isOutgoing && (
-                            <div className="relative w-7 h-7 rounded-full overflow-hidden border border-[#c6c6c6] bg-white flex items-center justify-center text-xs font-semibold text-white">
+                            <div className="relative w-7 h-7 shrink-0 aspect-square rounded-full overflow-hidden border border-[#c6c6c6] bg-white flex items-center justify-center text-xs font-semibold text-white">
                               {message.avatar ? (
                                 <Image
                                   src={message.avatar}
@@ -642,7 +642,7 @@ export default function Inicio() {
                             </div>
                           )}
                           <div
-                            className={`relative max-w-[100%] sm:max-w-[86%] rounded-2xl px-3 sm:px-4 py-3 text-sm leading-relaxed shadow break-words ${
+                            className={`relative max-w-[calc(100%-3rem)] sm:max-w-[86%] rounded-2xl px-3 sm:px-4 py-3 text-sm leading-relaxed shadow break-words ${
                               isOutgoing ? "bg-[#d9fdd3] rounded-tr-sm text-[#111b21]" : "rounded-tl-sm text-[#111b21]"
                             }`}
                             style={{ backgroundColor: bubbleColor }}

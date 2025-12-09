@@ -107,7 +107,7 @@ export default function Contacto() {
         <p className="mt-4 font-medium text-lg">
           Hola, soy{" "}
           <span className="font-bold">Roxana Patricia Sagre Alean</span>,
-          Enfermera Jefe. ¡Contáctate conmigo para cuidar de tus seres queridos!
+          enfermera con más de 15 años en hospitales y aún más experiencia en servicios domiciliarios, dueña de Enfermería Roxana. ¡Contáctate conmigo para cuidar de tus seres queridos!
         </p>
       </div>
 

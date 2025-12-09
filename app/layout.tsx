@@ -135,7 +135,7 @@ export default function RootLayout({
     process.env.NEXT_PUBLIC_SITE_URL ||
     "https://enfermeria-roxana.vercel.app";
   const canonicalUrl = `${siteUrl}/inicio`;
-  const ogImage = `${siteUrl}/seo-og.jpg?v=3`;
+  const ogImage = `${siteUrl}/seo-convertido-a-1000x525.jpeg?v=1`;
   const seoKeywords = `enfermería domiciliaria bogotá, enfermería norte de bogotá, enfermera chapinero, enfermera usaquén, enfermería suba, cuidado en casa, enfermera a domicilio, turno 24/7, cuidados paliativos, acompañamiento hospitalario, ${zonasTicker.join(
     ", "
   )}`;
@@ -179,7 +179,7 @@ export default function RootLayout({
         />
         <meta
           name="description"
-          content="Servicios de enfermería domiciliaria en casa para el cuidado de pacientes, con enfermeras jefes y auxiliares. Norte de Bogotá y Chapinero. Turnos 24/7 y acompañamiento hospitalario."
+          content="Servicios de enfermería domiciliaria en casa para el cuidado de pacientes, con enfermeras y auxiliares verificadas. Norte de Bogotá y Chapinero. Turnos 24/7 y acompañamiento hospitalario."
         />
         <meta
           name="keywords"
@@ -197,7 +197,7 @@ export default function RootLayout({
         <meta property="og:url" content={canonicalUrl} />
         <meta
           property="og:description"
-          content="Servicios de enfermería domiciliaria en casa para el cuidado de pacientes en el norte de Bogotá y Chapinero. Respuesta en minutos, enfermeras jefes y turnos 24/7."
+          content="Servicios de enfermería domiciliaria en casa para el cuidado de pacientes en el norte de Bogotá y Chapinero. Respuesta en minutos, enfermeras y auxiliares con turnos 24/7."
         />
         <meta property="og:image" content={ogImage} />
         <meta property="og:image:secure_url" content={ogImage} />
@@ -216,7 +216,7 @@ export default function RootLayout({
         <meta property="twitter:title" content="Roxana Enfermera | Norte de Bogotá" />
         <meta
           property="twitter:description"
-          content="Servicios de enfermería domiciliaria en casa para el cuidado de pacientes en el norte de Bogotá y Chapinero. Respuesta en minutos, enfermeras jefes y turnos 24/7."
+          content="Servicios de enfermería domiciliaria en casa para el cuidado de pacientes en el norte de Bogotá y Chapinero. Respuesta en minutos, enfermeras y auxiliares con turnos 24/7."
         />
         <meta property="twitter:image" content={ogImage} />
         <meta name="twitter:image:alt" content="Roxana Enfermera - contacta ya para enfermería a domicilio en Bogotá" />
@@ -224,6 +224,11 @@ export default function RootLayout({
         <link rel="canonical" href={canonicalUrl} />
         <link rel="alternate" hrefLang="es-CO" href={canonicalUrl} />
         <link rel="alternate" hrefLang="x-default" href={canonicalUrl} />
+        <link rel="icon" href="/logo.ico" />
+        <link rel="shortcut icon" href="/logo.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/logo-32.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/logo-180.png" />
+        <meta name="msapplication-TileImage" content="/logo-180.png" />
         <meta name="theme-color" content="#0f766e" />
         <title>
           Roxana Enfermera | Norte de Bogotá y Chapinero
