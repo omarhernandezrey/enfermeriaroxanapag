@@ -137,6 +137,9 @@ export default function RootLayout({
   const canonicalUrl = `${siteUrl}/inicio`;
   const ogImage = `${siteUrl}/seo-convertido-a-1000x525.jpeg?v=3`;
   const fbAppId = process.env.NEXT_PUBLIC_FB_APP_ID;
+  const isValidFbAppId = Boolean(
+    fbAppId && /^[1-9][0-9]{6,}$/.test(fbAppId)
+  ); // Evitar enviar IDs vacíos o de prueba
   const seoKeywords = `enfermería domiciliaria bogotá, enfermería norte de bogotá, enfermera chapinero, enfermera usaquén, enfermería suba, cuidado en casa, enfermera a domicilio, turno 24/7, cuidados paliativos, acompañamiento hospitalario, ${zonasTicker.join(
     ", "
   )}`;
@@ -210,7 +213,7 @@ export default function RootLayout({
         <meta property="og:site_name" content="Roxana Enfermera" />
         <meta property="og:updated_time" content={new Date().toISOString()} />
         <meta property="al:web:url" content={canonicalUrl} />
-        {fbAppId && <meta property="fb:app_id" content={fbAppId} />}
+        {isValidFbAppId && <meta property="fb:app_id" content={fbAppId} />}
         {/* Facebook/LinkedIn usan OG; WhatsApp también */}
 
         <meta property="twitter:card" content="summary_large_image" />
