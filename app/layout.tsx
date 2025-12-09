@@ -135,7 +135,7 @@ export default function RootLayout({
     process.env.NEXT_PUBLIC_SITE_URL ||
     "https://enfermeria-roxana.vercel.app";
   const canonicalUrl = `${siteUrl}/inicio`;
-  const ogImage = `${siteUrl}/seo-convertido-a-1000x525.jpeg?v=1`;
+  const ogImage = `${siteUrl}/seo-convertido-a-1000x525.jpeg?v=2`;
   const seoKeywords = `enfermería domiciliaria bogotá, enfermería norte de bogotá, enfermera chapinero, enfermera usaquén, enfermería suba, cuidado en casa, enfermera a domicilio, turno 24/7, cuidados paliativos, acompañamiento hospitalario, ${zonasTicker.join(
     ", "
   )}`;
@@ -201,9 +201,9 @@ export default function RootLayout({
         />
         <meta property="og:image" content={ogImage} />
         <meta property="og:image:secure_url" content={ogImage} />
-        <meta property="og:image:type" content="image/png" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="1000" />
+        <meta property="og:image:height" content="525" />
         <meta property="og:image:alt" content="Roxana Enfermera - contacto inmediato para enfermería a domicilio en Bogotá" />
         <meta property="og:locale" content="es_CO" />
         <meta property="og:site_name" content="Roxana Enfermera" />
