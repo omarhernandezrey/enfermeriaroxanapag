@@ -3,11 +3,12 @@ const siteUrl =
 const canonicalUrl = `${siteUrl}/inicio`;
 const ogImage = `${siteUrl}/seo-convertido-a-1000x525.jpeg?v=3`;
 
-// Solo se envía fb:app_id si la variable es numérica y válida
+// Lógica robusta para fb:app_id: usar env si es válido, sino fallback
 const rawFbAppId = process.env.NEXT_PUBLIC_FB_APP_ID;
+const fallbackFbAppId = "966242223397117";
 const isNumeric = (val: string | undefined) => /^[1-9][0-9]{6,}$/.test(val || "");
-const isValidFbAppId = isNumeric(rawFbAppId);
-const fbAppId = isValidFbAppId ? rawFbAppId : undefined;
+const fbAppId = isNumeric(rawFbAppId) ? rawFbAppId : fallbackFbAppId;
+const isValidFbAppId = isNumeric(fbAppId);
 
 const description =
   "Enviamos enfermeras y auxiliares verificadas para tu familiar en casa o clínica. Norte de Bogotá y Chapinero. Turnos 24/7, paliativos y acompañamiento hospitalario. Servicio para familias/pacientes, no es oferta laboral.";
