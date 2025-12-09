@@ -199,21 +199,21 @@ export default function Inicio() {
       imageSrc: "/images/enfermeria-domiciliaria.jpg",
       title: "Enfermería domiciliaria 24/7",
       description:
-        "Procedimientos, curaciones avanzadas y administración de medicamentos en casa. Enfermeras con experiencia hospitalaria y apoyo de auxiliares.",
+        "Llevamos estándares hospitalarios a tu casa: curaciones avanzadas, administración segura de medicamentos y seguimiento clínico con enfermeras verificadas y auxiliares de confianza.",
       cta: "Agendar enfermera",
     },
     {
       imageSrc: "/images/acomp-hospitalario.jpg",
       title: "Acompañamiento hospitalario VIP",
       description:
-        "Guardias personalizadas para no dejar solo a tu familiar en clínica. Reporte constante y coordinación con médicos.",
+        "Guardias privadas para que tu familiar nunca esté solo en clínica. Coordinamos con médicos, actualizamos a la familia y gestionamos todo el turno.",
       cta: "Reservar guardia",
     },
     {
       imageSrc: "/images/cuidado-paliativo.jpg",
       title: "Cuidados paliativos y control del dolor",
       description:
-        "Plan de alivio del dolor, confort y soporte emocional con enfoque humano en norte de Bogotá.",
+        "Diseñamos un plan de alivio del dolor, confort y soporte emocional en casa con un equipo sensible y coordinado con tu especialista.",
       cta: "Solicitar plan paliativo",
     },
   ];
@@ -329,10 +329,14 @@ export default function Inicio() {
             <h1 className="text-4xl md:text-5xl font-extrabold leading-tight drop-shadow-lg">
               Roxana Enfermera
             </h1>
+            <span className="inline-flex items-center px-4 py-2 bg-white/15 rounded-full text-sm uppercase tracking-wide text-[#d9fdd3]">
+              Servicio a familias — no es convocatoria laboral
+            </span>
             <p className="text-lg md:text-xl text-gray-100 leading-relaxed">
-              Enfermeras y auxiliares verificadas para cuidado en casa,
-              acompañamiento hospitalario y turnos 24/7. Cuidamos a tus
-              familiares con la misma dedicación que a los nuestros.
+              Coordinamos en minutos una enfermera o auxiliar verificada para tu familiar
+              en casa o clínica. Turnos 24/7, paliativos y acompañamiento hospitalario
+              con reportes claros, trato humano y estándares de clase mundial en el
+              norte de Bogotá y Chapinero.
             </p>
             <p className="inline-flex items-center gap-2 text-sm text-[#d9fdd3] bg-white/10 border border-[#25D366]/40 px-3 py-2 rounded-full shadow-md">
               <span className="font-semibold text-[#0b412c] bg-[#d9fdd3] px-2 py-1 rounded-full shadow-sm">
@@ -349,14 +353,14 @@ export default function Inicio() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center bg-white text-teal-800 px-6 py-3 rounded-full font-semibold shadow-lg hover:bg-teal-50 transition"
               >
-                Agenda por WhatsApp
+                Agenda una enfermera
               </a>
               <a
                 href="tel:+573136114707"
                 className="inline-flex items-center justify-center border border-white/70 px-6 py-3 rounded-full font-semibold hover:bg-white/10 transition"
               >
                 <FiPhoneCall className="mr-2" />
-                Llama ahora
+                Llamada inmediata
               </a>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
@@ -735,11 +739,11 @@ export default function Inicio() {
               Atención prioritaria
             </p>
             <h3 className="text-2xl md:text-3xl font-bold text-gray-900">
-              ¿Necesitas enfermera hoy mismo en el norte de Bogotá?
+              ¿Necesitas una enfermera hoy mismo para tu familiar?
             </h3>
             <p className="text-gray-700">
-              Escríbenos y confirmamos disponibilidad en minutos. También
-              coordinamos con tu médico.
+              Escríbenos y confirmamos disponibilidad en minutos. Coordinamos con tu médico,
+              definimos el turno y llegamos con protocolos claros.
             </p>
             <div className="mt-2 text-sm text-gray-700 space-y-1">
               <p>
@@ -772,7 +776,7 @@ export default function Inicio() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center bg-teal-700 text-white px-5 py-3 rounded-full font-semibold hover:bg-teal-800 transition w-full sm:w-auto"
             >
-              WhatsApp inmediato
+              Solicitar enfermera ahora
             </a>
             <a
               href="tel:+573136114707"

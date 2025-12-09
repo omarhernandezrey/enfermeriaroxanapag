@@ -102,12 +102,12 @@ export default function Contacto() {
       <div className="relative bg-teal-600 text-white h-72 flex flex-col items-center justify-center text-center px-6">
         <h1 className="text-4xl md:text-5xl font-bold">Contáctanos</h1>
         <p className="mt-2 text-lg md:text-xl">
-          Estamos aquí para resolver tus dudas y ayudarte.
+          Estamos aquí para resolver tus dudas y cuidar a tu familiar.
         </p>
         <p className="mt-4 font-medium text-lg">
           Hola, soy{" "}
           <span className="font-bold">Roxana Patricia Sagre Alean</span>,
-          enfermera con más de 15 años en hospitales y aún más experiencia en servicios domiciliarios, dueña de Enfermería Roxana. ¡Contáctate conmigo para cuidar de tus seres queridos!
+          enfermera con más de 15 años en hospitales y aún más experiencia en servicios domiciliarios, dueña de Enfermería Roxana. Si necesitas una enfermera para tu familia, escríbeme y coordinamos de inmediato.
         </p>
       </div>
 

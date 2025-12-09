@@ -187,7 +187,7 @@ export default function RootLayout({
         />
         <meta
           name="description"
-          content="Servicios de enfermería domiciliaria en casa para el cuidado de pacientes, con enfermeras y auxiliares verificadas. Norte de Bogotá y Chapinero. Turnos 24/7 y acompañamiento hospitalario."
+          content="Enviamos enfermeras y auxiliares verificadas para cuidar a tu familiar en casa o clínica en el norte de Bogotá y Chapinero. Turnos 24/7, paliativos y acompañamiento hospitalario. Servicio para familias/pacientes, no es oferta laboral."
         />
         <meta
           name="keywords"
@@ -205,7 +205,7 @@ export default function RootLayout({
         <meta property="og:url" content={canonicalUrl} />
         <meta
           property="og:description"
-          content="Servicios de enfermería domiciliaria en casa para el cuidado de pacientes en el norte de Bogotá y Chapinero. Respuesta en minutos, enfermeras y auxiliares con turnos 24/7."
+          content="Enviamos enfermeras y auxiliares verificadas para tu familiar en el norte de Bogotá y Chapinero. Turnos 24/7, paliativos y acompañamiento hospitalario con respuesta en minutos. Servicio para familias/pacientes, no es oferta laboral."
         />
         <meta property="og:image" content={ogImage} />
         <meta property="og:image:secure_url" content={ogImage} />
@@ -225,7 +225,7 @@ export default function RootLayout({
         <meta property="twitter:title" content="Roxana Enfermera | Norte de Bogotá" />
         <meta
           property="twitter:description"
-          content="Servicios de enfermería domiciliaria en casa para el cuidado de pacientes en el norte de Bogotá y Chapinero. Respuesta en minutos, enfermeras y auxiliares con turnos 24/7."
+          content="Enviamos enfermeras y auxiliares verificadas para tu familiar en el norte de Bogotá y Chapinero. Turnos 24/7, paliativos y acompañamiento hospitalario con respuesta en minutos. Servicio para familias/pacientes, no es oferta laboral."
         />
         <meta property="twitter:image" content={ogImage} />
         <meta name="twitter:image:alt" content="Roxana Enfermera - contacta ya para enfermería a domicilio en Bogotá" />

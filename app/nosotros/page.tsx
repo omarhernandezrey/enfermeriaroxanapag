@@ -233,11 +233,14 @@ export default function Nosotros() {
           <div className="absolute inset-0 bg-gradient-to-t from-teal-900 via-teal-600 to-transparent opacity-80"></div>
         </div>
         <div className="relative z-10 text-center px-6">
+          <span className="inline-flex items-center px-4 py-2 bg-white/15 rounded-full text-sm uppercase tracking-wide">
+            Servicio a familias — no es convocatoria laboral
+          </span>
           <h1 className="text-4xl md:text-6xl font-bold leading-tight drop-shadow-lg">
             Conoce a Enfermería Roxana
           </h1>
           <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto">
-            Innovación, cuidado humano y compromiso con tu bienestar.
+            Innovación, cuidado humano y compromiso con el bienestar de tus seres queridos en casa y clínica.
           </p>
         </div>
       </div>
