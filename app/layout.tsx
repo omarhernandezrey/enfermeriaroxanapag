@@ -135,8 +135,8 @@ export default function RootLayout({
     process.env.NEXT_PUBLIC_SITE_URL ||
     "https://enfermeria-roxana.vercel.app";
   const canonicalUrl = `${siteUrl}/inicio`;
-  const ogImage = `${siteUrl}/seo-convertido-a-1000x525.jpeg?v=2`;
-  const fbAppId = process.env.NEXT_PUBLIC_FB_APP_ID || "123456789012345";
+  const ogImage = `${siteUrl}/seo-convertido-a-1000x525.jpeg?v=3`;
+  const fbAppId = process.env.NEXT_PUBLIC_FB_APP_ID;
   const seoKeywords = `enfermería domiciliaria bogotá, enfermería norte de bogotá, enfermera chapinero, enfermera usaquén, enfermería suba, cuidado en casa, enfermera a domicilio, turno 24/7, cuidados paliativos, acompañamiento hospitalario, ${zonasTicker.join(
     ", "
   )}`;
@@ -210,7 +210,7 @@ export default function RootLayout({
         <meta property="og:site_name" content="Roxana Enfermera" />
         <meta property="og:updated_time" content={new Date().toISOString()} />
         <meta property="al:web:url" content={canonicalUrl} />
-        <meta property="fb:app_id" content={fbAppId} />
+        {fbAppId && <meta property="fb:app_id" content={fbAppId} />}
         {/* Facebook/LinkedIn usan OG; WhatsApp también */}
 
         <meta property="twitter:card" content="summary_large_image" />

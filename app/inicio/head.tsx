@@ -1,8 +1,8 @@
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://enfermeria-roxana.vercel.app";
 const canonicalUrl = `${siteUrl}/inicio`;
-const ogImage = `${siteUrl}/seo-convertido-a-1000x525.jpeg?v=2`;
-const fbAppId = process.env.NEXT_PUBLIC_FB_APP_ID || "123456789012345";
+const ogImage = `${siteUrl}/seo-convertido-a-1000x525.jpeg?v=3`;
+const fbAppId = process.env.NEXT_PUBLIC_FB_APP_ID;
 const description =
   "Servicios de enfermería domiciliaria en casa para el cuidado de pacientes. Norte de Bogotá y Chapinero. Turnos 24/7 con enfermeras y auxiliares, acompañamiento hospitalario y paliativos.";
 
@@ -24,7 +24,7 @@ export default function Head() {
         property="og:image:alt"
         content="Roxana Enfermera - enfermería domiciliaria en Bogotá"
       />
-      <meta property="fb:app_id" content={fbAppId} />
+      {fbAppId && <meta property="fb:app_id" content={fbAppId} />}
       <meta property="og:locale" content="es_CO" />
       <meta property="og:site_name" content="Roxana Enfermera" />
       <meta property="twitter:card" content="summary_large_image" />
