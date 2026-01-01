@@ -316,10 +316,10 @@ export default function Inicio() {
             src="/images/hero-image.jpg"
             alt="Enfermera a domicilio en Bogotá norte"
             fill
-            className="object-cover opacity-70"
+            className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-teal-900/70 to-slate-900/40" />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-teal-900/50 to-slate-900/10" />
         </div>
         <div className="relative max-w-7xl mx-auto px-6 py-20 lg:py-24 grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
