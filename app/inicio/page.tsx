@@ -312,33 +312,57 @@ export default function Inicio() {
       {/* Hero */}
       <section className="relative bg-teal-800 text-white overflow-hidden" id="inicio">
         <div className="absolute inset-0">
+          {/* Imagen para Desktop (oculta en móvil) */}
           <Image
             src="/images/hero-image.jpg"
             alt="Enfermera a domicilio en Bogotá norte"
             fill
-            className="object-cover"
+            className="hidden lg:block object-cover object-center"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-teal-900/50 to-slate-900/10" />
+          {/* Imagen para Móvil (oculta en desktop) */}
+          <Image
+            src="/images/hero-imageMobile.jpg"
+            alt="Enfermera a domicilio en Bogotá norte"
+            fill
+            className="lg:hidden object-cover object-top"
+            priority
+          />
+          
+          {/* Gradiente optimizado: Vertical para móvil (texto arriba), Horizontal para desktop (texto izquierda) */}
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-900/80 via-slate-900/40 to-transparent lg:bg-gradient-to-r lg:from-slate-900/90 lg:via-teal-900/50 lg:to-slate-900/10" />
         </div>
-        <div className="relative max-w-7xl mx-auto px-6 py-20 lg:py-24 grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
-            <span className="inline-flex items-center px-4 py-2 bg-white/15 rounded-full text-sm uppercase tracking-wide">
+        <div className="relative max-w-7xl mx-auto px-6 py-8 lg:py-24 grid lg:grid-cols-2 gap-6 lg:gap-12 items-center">
+          <div className="space-y-4 lg:space-y-6">
+            {/* Badge Cobertura: Oculto en móvil para ahorrar espacio */}
+            <span className="hidden lg:inline-flex items-center px-4 py-2 bg-white/15 rounded-full text-sm uppercase tracking-wide">
               Cobertura en Bogotá Norte, Chapinero, Usaquén y Suba
             </span>
-            <h1 className="text-4xl md:text-5xl font-extrabold leading-tight drop-shadow-lg">
+            
+            <h1 className="text-3xl lg:text-5xl font-extrabold leading-tight drop-shadow-lg">
               Roxana Enfermera
             </h1>
-            <span className="inline-flex items-center px-4 py-2 bg-white/15 rounded-full text-sm uppercase tracking-wide text-[#d9fdd3]">
+            
+            {/* Badge Aviso: Oculto en móvil para limpiar vista */}
+            <span className="hidden lg:inline-flex items-center px-4 py-2 bg-white/15 rounded-full text-xs lg:text-sm uppercase tracking-wide text-[#d9fdd3]">
               Servicio a familias — no es convocatoria laboral
             </span>
-            <p className="text-lg md:text-xl text-gray-100 leading-relaxed">
-              Coordinamos en minutos una enfermera o auxiliar verificada para tu familiar
-              en casa o clínica. Turnos 24/7, paliativos y acompañamiento hospitalario
-              con reportes claros, trato humano y estándares de clase mundial en el
-              norte de Bogotá y Chapinero.
+
+            {/* Descripción: Ultra corta en móvil */}
+            <p className="text-lg lg:text-xl text-gray-100 leading-relaxed font-medium drop-shadow-md">
+              <span className="lg:hidden">
+                Enfermería domiciliaria 24/7 en Bogotá Norte. Curaciones, inyectología y cuidado de pacientes en casa.
+              </span>
+              <span className="hidden lg:inline">
+                Coordinamos en minutos una enfermera o auxiliar verificada para tu familiar
+                en casa o clínica. Turnos 24/7, paliativos y acompañamiento hospitalario
+                con reportes claros, trato humano y estándares de clase mundial en el
+                norte de Bogotá y Chapinero.
+              </span>
             </p>
-            <p className="inline-flex items-center gap-2 text-sm text-[#d9fdd3] bg-white/10 border border-[#25D366]/40 px-3 py-2 rounded-full shadow-md">
+
+            {/* Línea directa: Oculta en móvil (ya están los botones) */}
+            <p className="hidden lg:inline-flex items-center gap-2 text-sm text-[#d9fdd3] bg-white/10 border border-[#25D366]/40 px-3 py-2 rounded-full shadow-md">
               <span className="font-semibold text-[#0b412c] bg-[#d9fdd3] px-2 py-1 rounded-full shadow-sm">
                 Línea directa
               </span>
@@ -363,7 +387,9 @@ export default function Inicio() {
                 Llamada inmediata
               </a>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
+            
+            {/* Stats: Ocultos en móvil para limpiar la vista */}
+            <div className="hidden sm:grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
               <div className="bg-white/10 rounded-lg p-4 backdrop-blur">
                 <p className="text-2xl font-bold text-cyan-100">24/7</p>
                 <p>Disponibilidad inmediata</p>
@@ -378,43 +404,7 @@ export default function Inicio() {
               </div>
             </div>
           </div>
-          <div className="bg-white/15 rounded-2xl p-6 backdrop-blur-lg shadow-2xl">
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="text-xl font-semibold flex items-center space-x-2">
-                <FiMapPin />
-                <span>Agendamiento express</span>
-              </h3>
-              <span className="bg-white text-teal-900 text-xs font-bold px-3 py-1 rounded-full">
-                Respuesta 45-90 min
-              </span>
-            </div>
-            <ul className="space-y-3 text-sm text-gray-100">
-              <li className="flex items-start space-x-2">
-                <FiCheckCircle className="text-cyan-100 mt-1" />
-                <span>Equipo verificado para norte de Bogotá.</span>
-              </li>
-              <li className="flex items-start space-x-2">
-                <FiCheckCircle className="text-cyan-100 mt-1" />
-                <span>Reportes al familiar y coordinación con médicos tratantes.</span>
-              </li>
-              <li className="flex items-start space-x-2">
-                <FiCheckCircle className="text-cyan-100 mt-1" />
-                <span>Curaciones, canalización, control de dolor y acompañamiento.</span>
-              </li>
-              <li className="flex items-start space-x-2">
-                <FiCheckCircle className="text-cyan-100 mt-1" />
-                <span>Turnos 6h, 8h, 12h, 24x24 y esquemas a la medida.</span>
-              </li>
-            </ul>
-            <a
-              href={whatsappBase}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-6 w-full inline-flex items-center justify-center bg-white text-teal-800 font-bold py-3 rounded-full hover:bg-teal-50 transition"
-            >
-              Solicitar disponibilidad
-            </a>
-          </div>
+          {/* Card eliminada por solicitud del usuario */}
         </div>
       </section>
 
